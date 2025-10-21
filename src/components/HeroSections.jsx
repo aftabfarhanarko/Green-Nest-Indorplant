@@ -19,7 +19,7 @@ const HeroSections = () => {
         <SwiperSlide>
           <div className="   md:flex w-11/12 mx-auto justify-between items-center py-10 ">
           <div>
-            <h1 className="text-4xl md:text-6x font-bold ">
+            <h1 className="text-4xl md:text-6xl font-bold ">
               <span className="text-green-500"> GreenNest</span>{" "}
               <span> Indoor Plant</span> <br></br>
               <span className="text-lime-500"> Care & Store</span>{" "}

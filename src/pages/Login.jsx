@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../context/AuthContex";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const [er , setEr] = useState("");
 
-  const handelLogin = () => {};
+  const {userLogin} = useContext(AuthContext);
+
+  const handelLogin = (e) => {
+      e.preventDefault();
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+    console.log({email,password});
+
+    userLogin(email , password)
+    .then(result => {
+      console.log(result.user)
+
+    }).catch(err => {
+      console.log(err.message)
+      setEr(err.message)
+    })
+  };
   return (
     <div className="flex justify-center items-center min-h-screen px-2">
       <div className="card bg-base-100 w-full max-w-sm shadow-2xl">

@@ -1,14 +1,53 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContex";
 
 const Register = () => {
   const [show, setShow] = useState(false);
-  const handelRegister = () =>{
 
-  }
+  const { creatUser, updeatCurrentUser } = useContext(AuthContext);
+  const [er, setEr] = useState();
+  const navegit = useNavigate();
+
+  const handelRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email?.value;
+    const displayName = e.target.name?.value;
+    const photoURL = e.target.photo.value;
+    const password = e.target.password.value;
+    const rememberMe = e.target.rememberMe;
+    console.log({  displayName, photoURL });
+    console.log(rememberMe.checked);
+    const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!validPassword.test(password)) {
+      setEr("Password must contain A-Z, a-z & 6+ chars");
+      return;
+    }
+    const updet = {
+      displayName,
+      photoURL
+    }
+
+    creatUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updeatCurrentUser(updet)
+          .then(() => {
+            navegit("/")
+          })
+          .catch((er) => {
+            setEr(er);
+            console.log(er.message);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        setEr(err);
+      });
+  };
   return (
-    <div className="flex justify-center items-center min-h-screen px-2">
+    <div className="flex justify-center items-center min-h-screen px-2 py-10">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-lg font-semibold mb-5 text-center">
@@ -64,15 +103,22 @@ const Register = () => {
                   {show ? <FaEye /> : <FaEyeSlash />}
                 </div>
               </div>
-              {/* Remember me */}
-              <label className="label cursor-pointer mt-2">
-                <input type="checkbox" name="rememberMe" className="checkbox" />
-                <span className="label-text">Remember me</span>
+
+              {/* Remember me */}            
+              <label className="label">
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  defaultChecked
+                  className="checkbox"
+                />
+                Remember me
               </label>
 
               <button type="submit" className="btn btn-neutral mt-4">
                 Register
               </button>
+              {/* <p className="text-red-600">{er && er}</p> */}
               <p className="font-semibold text-center mt-2">
                 Dont’t Have An Account ?{" "}
                 <Link className="text-red-500 hover:underline" to="/auth/login">
