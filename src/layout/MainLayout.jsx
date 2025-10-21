@@ -2,16 +2,17 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../components/Footer';
+import HeroSections from '../components/HeroSections';
 
 const MainLayout = () => {
     return (
         <div>
             <header>
-                <nav>
+                <nav className='bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg'>
                   <Navbar></Navbar>
                 </nav>
                 <section className='hero-sections'>
-                    <banner></banner>
+                   <HeroSections></HeroSections>
                 </section>
             </header>
             <main>
