@@ -19,7 +19,7 @@ const HeroSections = () => {
         <SwiperSlide>
           <div className="   md:flex w-11/12 mx-auto justify-between items-center py-10 ">
           <div>
-            <h1 className="text-6xl font-bold ">
+            <h1 className="text-4xl md:text-6x font-bold ">
               <span className="text-green-500"> GreenNest</span>{" "}
               <span> Indoor Plant</span> <br></br>
               <span className="text-lime-500"> Care & Store</span>{" "}
@@ -29,7 +29,7 @@ const HeroSections = () => {
               Discover handpicked indoor plants and expert care tips.<br></br>
               Grow green, live better — with GreenNest.
             </p>
-            <button className="btn text-white py-6 font-semibold text-xl px-14 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg my-4">
+            <button className="btn text-white py-6 px-7 md:px-14 font-semibold text-xl  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg my-4">
               Explore Now Plant
             </button>
           </div>
@@ -44,7 +44,7 @@ const HeroSections = () => {
         <SwiperSlide>
           <div className="   md:flex w-11/12 mx-auto justify-between items-center py-10 ">
           <div>
-            <h1 className="text-6xl font-bold ">
+            <h1 className="text-4xl md:text-6xl font-bold ">
               <span className="text-green-500"> GreenNest</span>{" "}
               <span> Indoor Plant</span> <br></br>
               <span className="text-lime-500"> Care & Store</span>{" "}
@@ -54,7 +54,7 @@ const HeroSections = () => {
               Discover handpicked indoor plants and expert care tips.<br></br>
               Grow green, live better — with GreenNest.
             </p>
-            <button className="btn text-white py-6 font-semibold text-xl px-14 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg my-4">
+            <button className="btn text-white py-6 font-semibold text-xl px-7 md:px-14 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg my-4">
               Explore Now Plant
             </button>
           </div>
@@ -69,7 +69,7 @@ const HeroSections = () => {
         <SwiperSlide>
           <div className="   md:flex w-11/12 mx-auto justify-between items-center py-10 ">
           <div>
-            <h1 className="text-6xl font-bold ">
+            <h1 className="text-4xl md:text-6xl font-bold ">
               <span className="text-green-500"> GreenNest</span>{" "}
               <span> Indoor Plant</span> <br></br>
               <span className="text-lime-500"> Care & Store</span>{" "}
@@ -79,7 +79,7 @@ const HeroSections = () => {
               Discover handpicked indoor plants and expert care tips.<br></br>
               Grow green, live better — with GreenNest.
             </p>
-            <button className="btn text-white py-6 font-semibold text-xl px-14 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg my-4">
+            <button className="btn text-white py-6 font-semibold text-xl px-7 md:px-14 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg my-4">
               Explore Now Plant
             </button>
           </div>
