@@ -3,12 +3,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Login = () => {
-  const [show , setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-  const handelLogin =() => {
-
-  }
-  return <div className="flex justify-center items-center min-h-screen">
+  const handelLogin = () => {};
+  return (
+    <div className="flex justify-center items-center min-h-screen px-2">
       <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
         <div className="card-body">
           <h1 className="text-lg font-semibold mb-5 text-center">
@@ -45,8 +44,6 @@ const Login = () => {
                 </div>
               </div>
 
-             
-
               {/* Forgot password */}
               <div>
                 <button onClick={""} className="link link-hover">
@@ -77,6 +74,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+  );
 };
 
 export default Login;
