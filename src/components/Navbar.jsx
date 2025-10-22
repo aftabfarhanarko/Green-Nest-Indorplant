@@ -13,12 +13,12 @@ const Navbar = () => {
     signOutUser();
   };
   return (
-    <div className="   flex justify-between items-center w-11/12 mx-auto py-4 ">
+    <div className="   flex justify-between items-center w-11/12 mx-auto py-2 ">
       <img className="w-20 h-20 border-2 rounded-full" src={logo}></img>
       <div className="flex gap-7 text-white font-semibold items-center">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/plants">Plants</NavLink>
-        <NavLink>My Profile</NavLink>
+        <NavLink to="/profile">My Profile</NavLink>
       </div>
       <div>
         <div className="hidden  drawer drawer-end">

@@ -2,29 +2,35 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContex";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [show, setShow] = useState(false);
-  const [er , setEr] = useState();
+  const [er, setEr] = useState();
   const navagiet = useNavigate();
 
-  const {userLogin} = useContext(AuthContext);
+  const { userLogin,googleLogin } = useContext(AuthContext);
 
   const handelLogin = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log({email,password});
+    console.log({ email, password });
 
-    userLogin(email , password)
-    .then(result => {
-      console.log(result.user)
-       navagiet("/")
-    }).catch(err => {
-      console.log(err.message)
-      setEr(err.message)
-    })
+    userLogin(email, password)
+      .then((result) => {
+        console.log(result.user);
+        navagiet("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setEr(err.message);
+      });
   };
+
+  const gogleSignIn = () => {
+    googleLogin();
+  }
   return (
     <div className="flex justify-center items-center min-h-screen px-2">
       <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
@@ -74,8 +80,14 @@ const Login = () => {
               {/* <p className="text-red-600">{error && error}</p> */}
 
               {/* Submit */}
-              <button type="submit" className="btn btn-neutral mt-4 w-full">
+              <button
+                type="submit"
+                className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-whit text-white mt-4 w-full">
                 Login
+              </button>
+              <button onClick={gogleSignIn} className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-white ">
+                <FcGoogle />
+                Login with Gioogle
               </button>
 
               {/* Register link */}

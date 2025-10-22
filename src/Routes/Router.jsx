@@ -6,6 +6,7 @@ import Plant from "../components/Plant";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import MyProfile from "../pages/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -43,5 +44,9 @@ export const router = createBrowserRouter([
             element:<Register></Register>
         }
     ]
+  },
+  {
+    path:'/profile',
+    element:<MyProfile></MyProfile>
   }
 ]);
