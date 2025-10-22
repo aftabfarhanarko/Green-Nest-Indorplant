@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         index: true,
         loader: () => fetch("/plants.json"),
         element: <Home></Home>,
-        hydrateFallbackElement: <h1>Loding....</h1>,
+        hydrateFallbackElement: <Loder></Loder>
       },
       {
         path: "/",

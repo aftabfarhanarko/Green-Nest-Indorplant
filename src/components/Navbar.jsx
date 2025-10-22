@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to="/plants">Plants</NavLink>
         <NavLink to="/profile">My Profile</NavLink>
 
-       {user &&  <NavLink to="/detlise">Plant Detlise</NavLink>}
+        {user && <NavLink to="/detlise">Plant Detlise</NavLink>}
       </div>
       <div>
         <div className="hidden  drawer drawer-end">
@@ -76,7 +76,7 @@ const Navbar = () => {
             <li className="text-center font-semibold">
               {user && user.displayName}
             </li>
-            <li>
+            <li >
               {user ? (
                 <button
                   onClick={outUser}
@@ -85,9 +85,14 @@ const Navbar = () => {
                   Sign Out
                 </button>
               ) : (
-                <Link to="/auth/login" className="btn btn-soft btn-secondary">
-                  Login
-                </Link>
+                <div className="justify-between  ">
+                  <Link to="/auth/login" className="btn  btn-soft btn-secondary">
+                    Login
+                  </Link>
+                  <Link to="/auth/register" className="btn btn-soft btn-secondary">
+                    Register
+                  </Link>
+                </div>
               )}
             </li>
           </ul>

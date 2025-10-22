@@ -88,6 +88,7 @@ const Login = () => {
               </button>
               <button
                 onClick={gogleSignIn}
+                type="button"
                 className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-white "
               >
                 <FcGoogle />
