@@ -1,15 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate, useNavigation } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const [er, setEr] = useState();
   const navagiet = useNavigate();
+  const locations = useLocation();
+  console.log(locations);
 
-  const { userLogin, googleLogin } = useContext(AuthContext);
+  const refernce = useRef(null);
+
+  const { userLogin, googleLogin, emailVerify } = useContext(AuthContext);
 
   const handelLogin = (e) => {
     e.preventDefault();
@@ -19,17 +24,31 @@ const Login = () => {
 
     userLogin(email, password)
       .then((result) => {
+        navagiet(`${locations.state ? locations.state : "/"}`); /// navegite er kaj baki
         console.log(result.user);
-        navagiet("/");
       })
       .catch((err) => {
-        console.log(err.message);
         setEr(err.message);
+        console.log(err.message);
       });
   };
 
   const gogleSignIn = () => {
-    googleLogin();
+    googleLogin().then(() => {
+      navagiet(`${locations.state ? locations.state : "/"}`); /// navegite er kaj baki
+    });
+  };
+
+  const passwordResetGmail = () => {
+    const email = refernce.current.value;
+    emailVerify(email)
+      .then((result) => {
+        toast.success("Your Password Reset Mail Provied Now");
+        window.open("https://mail.google.com/mail/u/0/", "_blank");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
   };
   return (
     <div className="flex justify-center items-center min-h-screen px-2">
@@ -44,6 +63,7 @@ const Login = () => {
               {/* Email */}
               <label className="label font-semibold">Email address</label>
               <input
+                ref={refernce}
                 name="email"
                 type="email"
                 className="input"
@@ -71,7 +91,11 @@ const Login = () => {
 
               {/* Forgot password */}
               <div>
-                <button onClick={""} className="link link-hover">
+                <button
+                  type="button"
+                  onClick={passwordResetGmail}
+                  className="link link-hover"
+                >
                   Forgot password?
                 </button>
               </div>

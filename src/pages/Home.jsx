@@ -86,13 +86,13 @@ const Home = () => {
       </section>
 
       <section>
-        <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce  ">
+        <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce animate-pulse  ">
           <span className="text-lime-500"> Meet Our</span>{" "}
           <span className="text-green-500"> Green Experts</span>{" "}
         </h1>
 
         <div>
-          <div className="pl-7 md:pl-0 md:flex justify-between ">
+          <div className=" md:pl-0 md:flex justify-between ">
             <div className="   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
               {/* Profile Image */}
               <img
@@ -106,8 +106,8 @@ const Home = () => {
               <p className="text-sm font-medium text-green-100">
                 EcoBloom Interiors
               </p>
-              <p className="text-center text-sm mt-2 leading-relaxed">
-                🌿 <span className="font-semibold">Specialization:</span> Indoor
+              <p className="text-center text-sm mt-2 leading-relaxed animate-pulse">
+                🌿 <span className="font-semibold animate-pulse">Specialization:</span> Indoor
                 plant styling & sustainable decor
               </p>
 
@@ -128,7 +128,7 @@ const Home = () => {
               <p className="text-sm font-medium text-green-100">
                 Leaf & Life Bangladesh
               </p>
-              <p className="text-center text-sm mt-2 leading-relaxed">
+              <p className="text-center text-sm mt-2 leading-relaxed animate-pulse">
                 🌿 <span className="font-semibold">Specialization:</span> Plant
                 care consultant & fertilizer expert
               </p>
@@ -149,7 +149,7 @@ const Home = () => {
               <p className="text-sm font-medium text-green-100">
                 Urban GreenWorks
               </p>
-              <p className="text-center text-sm mt-2 leading-relaxed">
+              <p className="text-center text-sm mt-2 leading-relaxed animate-pulse">
                 🌿 <span className="font-semibold">Specialization:</span>{" "}
                 Balcony garden & urban space landscaping
               </p>

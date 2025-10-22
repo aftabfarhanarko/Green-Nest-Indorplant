@@ -7,7 +7,7 @@ import { ScaleLoader } from "react-spinners";
 
 const Navbar = () => {
   const { user, loding, signOutUser } = useContext(AuthContext);
-
+   console.log(user);
   const outUser = () => {
     signOutUser();
   };
@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to="/plants">Plants</NavLink>
         <NavLink to="/profile">My Profile</NavLink>
 
-        {user && <NavLink to="/detlise">Plant Detlise</NavLink>}
+        {/* {user && <NavLink to="/detlise">Plant Detlise</NavLink>} */}
       </div>
       <div>
         <div className="hidden  drawer drawer-end">

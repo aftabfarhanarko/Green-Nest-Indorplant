@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContex";
 const Register = () => {
   const [show, setShow] = useState(false);
 
-  const { creatUser, updeatCurrentUser } = useContext(AuthContext);
+  const { creatUser, updeatUserProfile } = useContext(AuthContext);
   const [er, setEr] = useState();
   const navegit = useNavigate();
 
@@ -17,28 +17,28 @@ const Register = () => {
     const photoURL = e.target.photo.value;
     const password = e.target.password.value;
     const rememberMe = e.target.rememberMe;
-    console.log({ displayName, photoURL });
     console.log(rememberMe.checked);
     const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!validPassword.test(password)) {
       setEr("Password must contain A-Z, a-z & 6+ chars");
       return;
     }
-    const updet = {
+    const ubdet = {
       displayName,
       photoURL,
     };
+
     setEr("");
     creatUser(email, password)
       .then((result) => {
         console.log(result.user);
-        updeatCurrentUser(updet)
+        
+        updeatUserProfile(ubdet)
           .then(() => {
             navegit("/");
           })
-          .catch((er) => {
-            setEr(er);
-            console.log(er.message);
+          .catch((err) => {
+            console.log(err.message);
           });
       })
       .catch((err) => {

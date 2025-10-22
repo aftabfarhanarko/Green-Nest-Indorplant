@@ -6,27 +6,24 @@ import {
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
-  GoogleAuthProvider, 
-  signInWithPopup
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
-
-
+import { auth, db } from "../firebase/firebase.config";
+import { ref, set, onValue, update as updateDb } from "firebase/database";
+import { data } from "react-router";
 const googleProvider = new GoogleAuthProvider();
+
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loding, setLoding] = useState(true);
+  const [relUser, setRelUser] = useState({});
 
   // user creat
   const creatUser = (email, password) => {
     setLoding(true);
     return createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  // ubdeat realtimeuser
-  const updeatCurrentUser = (updet) => {
-    setLoding(true);
-    return updateProfile(auth.currentUser, updet);
   };
 
   // signInUser
@@ -38,15 +35,54 @@ const ContextProvider = ({ children }) => {
   const signOutUser = () => {
     setLoding(true);
     return signOut(auth);
-  }
+  };
 
   const googleLogin = () => {
-    return signInWithPopup(auth , googleProvider);
+    setLoding(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const emailVerify = (email) => {
+    setLoding(true);
+    return sendPasswordResetEmail(auth, email);
+  };
+
+  const updeatUserProfile = (ubdet) => {
+    return updateProfile(auth.currentUser, ubdet);
+  };
+
+  // real time databaseUpdeat
+  const ubdeatRealTimeDataBase= (uid, data) => {
+    const userRef = ref(db, "user/" + uid);
+    return updateDb(userRef, data);
   }
+  useEffect(() => {
+    if(user?.uid){
+      const userRef = ref(db, "/user/" +user.uid);
+      const unsubcripet = onValue(userRef, (snapshot) =>{
+        const data = snapshot.val();
+        if(data){
+          setRelUser(data);
+        }
+      })
+      return () =>  unsubcripet();
+    };
+  },[user]);
+
+
   useEffect(() => {
     const unsucribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoding(false);
+      if(currentUser){
+        const userRef= ref(db, "users/" + currentUser.uid);
+        set(userRef, {
+          uid: currentUser.uid,
+          email: currentUser.email,
+          displayName: currentUser.displayName || "",
+          photoURL: currentUser.photoURL || "",
+        });
+      }
     });
 
     return () => {
@@ -56,16 +92,19 @@ const ContextProvider = ({ children }) => {
 
   const info = {
     creatUser,
-    updeatCurrentUser,
     userLogin,
     user,
     loding,
     signOutUser,
-    googleLogin
+    googleLogin,
+    emailVerify,
+    updeatUserProfile,
+    ubdeatRealTimeDataBase,
+    relUser
   };
   return (
     <div>
-      <AuthContext value={info}>{children}</AuthContext>
+      <AuthContext.Provider value={info}>{children}</AuthContext.Provider>
     </div>
   );
 };
