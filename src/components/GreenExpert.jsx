@@ -2,7 +2,7 @@ import React from "react";
 import { FaRegStar } from "react-icons/fa";
 
 const GreenExpert = ({plant}) => {
-  console.log(plant)
+  // console.log(plant)
 
   return( 
  <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-lg overflow-hidden transition transform hover:scale-105 hover:shadow-2xl hover:animate duration-300">

@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 
 const Login = () => {
   const [show, setShow] = useState(false);
-  const [er , setEr] = useState("");
+  const [er , setEr] = useState();
+  const navagiet = useNavigate();
 
   const {userLogin} = useContext(AuthContext);
 
@@ -18,7 +19,7 @@ const Login = () => {
     userLogin(email , password)
     .then(result => {
       console.log(result.user)
-
+       navagiet("/")
     }).catch(err => {
       console.log(err.message)
       setEr(err.message)

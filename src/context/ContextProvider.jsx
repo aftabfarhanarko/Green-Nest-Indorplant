@@ -1,38 +1,63 @@
-import React from 'react';
-import { AuthContext } from './AuthContex';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config';
+import React, { useEffect, useState } from "react";
+import { AuthContext } from "./AuthContex";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
 
+const ContextProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loding, setLoding] = useState(true);
 
-const ContextProvider = ({children}) => {
+  // user creat
+  const creatUser = (email, password) => {
+    setLoding(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-    // user creat
-    const creatUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
-    }
+  // ubdeat realtimeuser
+  const updeatCurrentUser = (updet) => {
+    setLoding(true);
+    return updateProfile(auth.currentUser, updet);
+  };
 
-    // ubdeat realtimeuser 
-    const updeatCurrentUser = (updet) => {
-        return updateProfile(auth.currentUser, updet);
-    }
-    
-    // signInUser 
-    const userLogin = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
-    }
+  // signInUser
+  const userLogin = (email, password) => {
+    setLoding(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
+  const signOutUser = () => {
+    return signOut(auth);
+  }
+  useEffect(() => {
+    const unsucribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoding(false);
+    });
 
-    const info ={
-        creatUser,
-        updeatCurrentUser,
-        userLogin
+    return () => {
+      unsucribe();
     };
-    return (
-        <div>
-            <AuthContext value={info}>{children}</AuthContext>
-            
-        </div>
-    );
+  }, []);
+
+  const info = {
+    creatUser,
+    updeatCurrentUser,
+    userLogin,
+    user,
+    loding,
+    signOutUser
+  };
+  return (
+    <div>
+      <AuthContext value={info}>{children}</AuthContext>
+    </div>
+  );
 };
 
 export default ContextProvider;
