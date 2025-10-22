@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import GreenExpert from "../components/GreenExpert";
 import tips1 from "../assets/tips1.jpg";
-import tips2 from "../assets/tipa2.jpg";
 import tips3 from "../assets/tips3.jpsg.jpg";
 import tips4 from "../assets/tips5.jpg";
+import expart1 from "../assets/expart1.jpg";
+import expart2 from "../assets/expart2.jpg";
+import expart3 from "../assets/expart3.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -84,14 +86,82 @@ const Home = () => {
       </section>
 
       <section>
-        <h1>Meet Our Green Experts → এক্সপার্টদের ছবি ও নাম দেখাবে</h1>
+        <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce  ">
+          <span className="text-lime-500"> Meet Our</span>{" "}
+          <span className="text-green-500"> Green Experts</span>{" "}
+        </h1>
+
+        <div>
+          <div className="pl-7 md:pl-0 md:flex justify-between ">
+            <div className="   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              {/* Profile Image */}
+              <img
+                className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
+                src={expart1}
+                alt="Expert"
+              />
+
+              {/* Expert Info */}
+              <h3 className="text-xl font-bold mt-2">Sophia Rahman</h3>
+              <p className="text-sm font-medium text-green-100">
+                EcoBloom Interiors
+              </p>
+              <p className="text-center text-sm mt-2 leading-relaxed">
+                🌿 <span className="font-semibold">Specialization:</span> Indoor
+                plant styling & sustainable decor
+              </p>
+
+              {/* Decorative line */}
+              <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
+            </div>
+
+            <div className=" mt-5 md:mt-0 max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              {/* Profile Image */}
+              <img
+                className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
+                src={expart2}
+                alt="Expert"
+              />
+
+              {/* Expert Info */}
+              <h3 className="text-xl font-bold mt-2"> Arif Hasan </h3>
+              <p className="text-sm font-medium text-green-100">
+                Leaf & Life Bangladesh
+              </p>
+              <p className="text-center text-sm mt-2 leading-relaxed">
+                🌿 <span className="font-semibold">Specialization:</span> Plant
+                care consultant & fertilizer expert
+              </p>
+
+              {/* Decorative line */}
+              <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
+            </div>
+            <div className=" mt-5 md:mt-0 max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              {/* Profile Image */}
+              <img
+                className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
+                src={expart3}
+                alt="Expert"
+              />
+
+              {/* Expert Info */}
+              <h3 className="text-xl font-bold mt-2">Moni Mite</h3>
+              <p className="text-sm font-medium text-green-100">
+                Urban GreenWorks
+              </p>
+              <p className="text-center text-sm mt-2 leading-relaxed">
+                🌿 <span className="font-semibold">Specialization:</span>{" "}
+                Balcony garden & urban space landscaping
+              </p>
+
+              {/* Decorative line */}
+              <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
 };
 
 export default Home;
-/**
- *
- *
- */
