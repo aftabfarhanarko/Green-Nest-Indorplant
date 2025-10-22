@@ -1,27 +1,17 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
 
 const DetliseCard = ({ data }) => {
   console.log(data);
   const p = data;
 
-  // const renderStars = (rating) => {
-  //   const fullStars = Math.floor(rating);
-  //   const half = rating - fullStars >= 0.5;
-  //   const total = 5;
-  //   const stars = [];
-  //   for (let i = 0; i < fullStars; i++)
-  //     stars.push(<span key={`f${i}`}>★</span>);
-  //   if (half) stars.push(<span key="h">☆</span>);
-  //   for (let i = stars.length; i < total; i++)
-  //     stars.push(<span key={`e${i}`}>☆</span>);
-  //   return (
-  //     <div className="text-yellow-500 text-lg leading-none" aria-hidden>
-  //       {stars}
-  //     </div>
-  //   );
-  // };
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    toast.success(" Book Now Plant Success");
+  };
 
   return (
     <div className="w-11/12 mx-auto">
@@ -109,13 +99,75 @@ const DetliseCard = ({ data }) => {
           <div className="mx-8 my-6 border-t border-green-300"></div>
 
           {/* Description full width below */}
-          <div className="p-4">
-            <h2 className="text-2xl font-semibold mb-3 text-gray-800">
-              Description
-            </h2>
-            <p className="text-gray-600 p-3 md:p-2 leading-relaxed text-justify">
-              {p.description}
-            </p>
+          <div className="p-4 py-15 flex flex-col  md:flex-row items-center  justify-between gap-15">
+          
+
+            <div className="max-w-[700px] ">
+              <h2 className="text-2xl font-semibold mb-3 text-gray-800">
+                Description
+              </h2>
+              <p className="text-gray-600 p-3 md:p-2 leading-relaxed text-justify">
+                {p.description}
+              </p>
+            </div>
+              <div className="w-full px-4 md:px-15">
+              <form
+                onSubmit={handelSubmit}
+                className="max-w-lg mx-auto bg-gradient-to-br from-green-50 via-emerald-100 to-lime-50 border border-green-200 shadow-xl rounded-xl p-8 backdrop-blur-sm"
+              >
+                <h2 className="text-3xl font-bold text-center text-emerald-700 mb-6">
+                  🌿 Get In Touch
+                </h2>
+
+                {/* Full Name */}
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-emerald-700 mb-2">
+                    Full Name
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    className="w-full p-3 rounded-xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-emerald-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    className="w-full p-3 rounded-xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="mb-6">
+                  <label className="block text-sm font-semibold text-emerald-700 mb-2">
+                    Your Message
+                  </label>
+                  <textarea
+                    name="message"
+                    className="w-full p-3 rounded-xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all h-28 resize-none"
+                    placeholder="Write your message..."
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 text-white py-3 rounded-xl font-semibold shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                >
+                  Book Now
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
