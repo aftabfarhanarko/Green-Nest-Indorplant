@@ -9,7 +9,7 @@ const Login = () => {
   const [er, setEr] = useState();
   const navagiet = useNavigate();
 
-  const { userLogin,googleLogin } = useContext(AuthContext);
+  const { userLogin, googleLogin } = useContext(AuthContext);
 
   const handelLogin = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const Login = () => {
 
   const gogleSignIn = () => {
     googleLogin();
-  }
+  };
   return (
     <div className="flex justify-center items-center min-h-screen px-2">
       <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
@@ -77,15 +77,19 @@ const Login = () => {
               </div>
 
               {/* Error */}
-              {/* <p className="text-red-600">{error && error}</p> */}
+              <p className="text-red-600">{er && er}</p>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-whit text-white mt-4 w-full">
+                className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-whit text-white mt-4 w-full"
+              >
                 Login
               </button>
-              <button onClick={gogleSignIn} className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-white ">
+              <button
+                onClick={gogleSignIn}
+                className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-white "
+              >
                 <FcGoogle />
                 Login with Gioogle
               </button>

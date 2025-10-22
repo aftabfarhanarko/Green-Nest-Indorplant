@@ -7,7 +7,6 @@ import { GoSignOut } from "react-icons/go";
 
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <div>
       <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
@@ -23,14 +22,13 @@ const MyProfile = () => {
           >
             <div className="p-6 flex flex-col items-center text-center">
               <img
-                // src={user.photoURL}
-
+                src={user?.photoURL}
                 className="w-28 h-28 rounded-full object-cover ring-4 ring-emerald-100 shadow-md"
                 referrerPolicy="no-referrer"
               />
 
               <h2 className="mt-4 text-xl font-semibold text-slate-900">
-                Aftab Farhan{/* {user.displayName} */}
+                {user?.displayName}
               </h2>
 
               <p className="mt-1 text-sm text-slate-500">

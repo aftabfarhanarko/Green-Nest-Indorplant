@@ -1,9 +1,9 @@
 import React from "react";
 import { FaRegStar } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const PlantsCard = ({ plant }) => {
-  console.log(plant);
   return (
     <>
       <motion.article
@@ -52,9 +52,11 @@ const PlantsCard = ({ plant }) => {
             </div>
 
             {/* Button */}
-            <button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
+          <Link to={`/detlise/${plant.plantId}`}>
+            <button  className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
               View Details
             </button>
+            </Link>
           </div>
         </div>
       </motion.article>

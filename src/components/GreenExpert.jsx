@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegStar } from "react-icons/fa";
+import { Link } from "react-router";
 
 const GreenExpert = ({plant}) => {
   // console.log(plant)
@@ -49,9 +50,11 @@ const GreenExpert = ({plant}) => {
     </div>
 
     {/* Button */}
+    <Link to={`/detlise/${plant.plantId}`}> 
     <button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
       View Details
     </button>
+    </Link>
   </div>
 </div>
 

@@ -17,7 +17,7 @@ const Register = () => {
     const photoURL = e.target.photo.value;
     const password = e.target.password.value;
     const rememberMe = e.target.rememberMe;
-    console.log({  displayName, photoURL });
+    console.log({ displayName, photoURL });
     console.log(rememberMe.checked);
     const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!validPassword.test(password)) {
@@ -26,15 +26,15 @@ const Register = () => {
     }
     const updet = {
       displayName,
-      photoURL
-    }
-
+      photoURL,
+    };
+    setEr("");
     creatUser(email, password)
       .then((result) => {
         console.log(result.user);
         updeatCurrentUser(updet)
           .then(() => {
-            navegit("/")
+            navegit("/");
           })
           .catch((er) => {
             setEr(er);
@@ -104,7 +104,7 @@ const Register = () => {
                 </div>
               </div>
 
-              {/* Remember me */}            
+              {/* Remember me */}
               <label className="label">
                 <input
                   type="checkbox"
@@ -118,7 +118,7 @@ const Register = () => {
               <button type="submit" className="btn btn-neutral mt-4">
                 Register
               </button>
-              {/* <p className="text-red-600">{er && er}</p> */}
+              <p className="text-red-600">{er && er}</p>
               <p className="font-semibold text-center mt-2">
                 Dont’t Have An Account ?{" "}
                 <Link className="text-red-500 hover:underline" to="/auth/login">

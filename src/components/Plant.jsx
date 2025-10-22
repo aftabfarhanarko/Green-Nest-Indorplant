@@ -6,7 +6,6 @@ import PlantsCard from "./PlantsCard";
 
 const Plant = () => {
   const promiseData = useLoaderData();
-  console.log(promiseData);
   return (
     <div>
       <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
@@ -21,7 +20,7 @@ const Plant = () => {
         </h1>
         <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-10">
           {promiseData.map((plant) => (
-            <PlantsCard plant={plant} key={plant.id}></PlantsCard>
+            <PlantsCard plant={plant} key={plant.plantId}></PlantsCard>
           ))}
         </div>
       </main>

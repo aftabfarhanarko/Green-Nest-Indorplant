@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useLoaderData, useParams } from "react-router";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { AuthContext } from "../context/AuthContex";
+import Loder from "../components/Loder";
+import DetliseCard from "../components/DetliseCard";
 
 const PlantsDetails = () => {
-  return <div>PlantsDetails PlantsDetails</div>;
+  const data = useLoaderData();
+  const { plantId } = useParams();
+  const {user} = useContext(AuthContext);
+  const filterData = data.filter((one) => one.plantId == plantId);
+  return (
+    <div>
+      <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+        <Navbar></Navbar>
+      </header>
+
+      <main className="min-h-screen">
+        {user ? filterData.map((data) => (
+          <DetliseCard data={data} key={data.plantId}></DetliseCard>
+         
+        )): <Loder></Loder> }
+      </main>
+
+      <footer>
+        <Footer></Footer>
+      </footer>
+    </div>
+  );
 };
 
 export default PlantsDetails;

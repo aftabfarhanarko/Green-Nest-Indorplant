@@ -7,6 +7,9 @@ import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import MyProfile from "../pages/MyProfile";
+import PrivetRoute from "../provider/PrivetRoute";
+import Loder from "../components/Loder";
+import PlantsDetails from "../pages/PlantsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +32,7 @@ export const router = createBrowserRouter([
     path: "/plants",
     loader: () => fetch("/plants.json"),
     element: <Plant></Plant>,
-    hydrateFallbackElement: <h1>Loding....</h1>,
+    hydrateFallbackElement: <Loder></Loder>,
   },
   {
     path:"/auth",
@@ -47,6 +50,18 @@ export const router = createBrowserRouter([
   },
   {
     path:'/profile',
-    element:<MyProfile></MyProfile>
-  }
+    element:<PrivetRoute>
+      <MyProfile></MyProfile>
+    </PrivetRoute>
+  },
+  {
+    path:"/detlise/:plantId",
+    loader:  () => fetch("/plants.json"),
+    element: <PrivetRoute><PlantsDetails></PlantsDetails></PrivetRoute>
+  },
+
+  // {
+  //   path:"*",
+  //   element:<h1>Not Pages FOundes path error</h1>
+  // }
 ]);
