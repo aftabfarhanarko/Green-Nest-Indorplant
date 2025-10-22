@@ -12,7 +12,6 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../firebase/firebase.config";
 import { ref, set, onValue, update as updateDb } from "firebase/database";
-import { data } from "react-router";
 const googleProvider = new GoogleAuthProvider();
 
 const ContextProvider = ({ children }) => {
@@ -53,12 +52,12 @@ const ContextProvider = ({ children }) => {
 
   // real time databaseUpdeat
   const ubdeatRealTimeDataBase= (uid, data) => {
-    const userRef = ref(db, "user/" + uid);
+    const userRef = ref(db, "users/" + uid);
     return updateDb(userRef, data);
   }
   useEffect(() => {
     if(user?.uid){
-      const userRef = ref(db, "/user/" +user.uid);
+      const userRef = ref(db, "users/" +user.uid);
       const unsubcripet = onValue(userRef, (snapshot) =>{
         const data = snapshot.val();
         if(data){
@@ -95,6 +94,7 @@ const ContextProvider = ({ children }) => {
     userLogin,
     user,
     loding,
+    setRelUser,
     signOutUser,
     googleLogin,
     emailVerify,

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, Navigate, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContex";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [show, setShow] = useState(false);
@@ -32,12 +33,14 @@ const Register = () => {
     creatUser(email, password)
       .then((result) => {
         console.log(result.user);
-        
+
         updeatUserProfile(ubdet)
           .then(() => {
             navegit("/");
+            toast.success("Successfully Register Now");
           })
           .catch((err) => {
+             toast.error(er.code);
             console.log(err.message);
           });
       })

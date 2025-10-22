@@ -6,28 +6,34 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
 const MyProfile = () => {
-  const { user,relUser, updeatUserProfile } = useContext(AuthContext);
+  const { user,relUser, updeatUserProfile,ubdeatRealTimeDataBase,setRelUser } = useContext(AuthContext);
+
+
 
   const handelRegister = (e) => {
     e.preventDefault();
-    const displayName = e.target.name?.value;
-    const photoURL = e.target.photo?.value;
-    console.log({ displayName, photoURL });
-    const useraData = {
-      displayName,
-      photoURL,
-    };
-
+    const displayName = e.target.name?.value.trim();
+    const photoURL = e.target.photo?.value.trim();
+     e.target.reset();
+    if(!displayName && !photoURL){
+      toast.error("Please Provide a Name or Photo URl!");
+      return;
+    }
+    const useraData = {displayName, photoURL};
     updeatUserProfile(useraData)
-      .then((result) => {
-        console.log(result.user);
-        toast.success("Successfully Updeat User");
-      })
-      .catch((err) => {
-        console.log(err.message);
-        toast.error(err.code);
-      });
-  };
+    .then(() => {
+      return ubdeatRealTimeDataBase(user.uid, useraData);
+    }).then(() => {
+      setRelUser((prev) => ({
+        ...prev,
+        displayName,photoURL,
+      }));
+      toast.success("Profile Updeat Successfully!")
+    }).catch((err) => {
+      toast.error(err.code || "Something went Wrong!");
+    });
+  }
+
 
   return (
     <div>
@@ -78,7 +84,6 @@ const MyProfile = () => {
                       name="photo"
                       className="input focus:outline-none "
                       placeholder="photo url"
-                      required
                     />
                   </fieldset>
                   <button

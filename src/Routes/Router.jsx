@@ -65,3 +65,14 @@ export const router = createBrowserRouter([
   //   element:<h1>Not Pages FOundes path error</h1>
   // }
 ]);
+
+
+/**
+ *   <footer>
+        <Footer></Footer>
+      </footer>
+      
+        <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+        <Navbar></Navbar>
+      </header>
+ */

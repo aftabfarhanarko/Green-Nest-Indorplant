@@ -24,7 +24,8 @@ const Login = () => {
 
     userLogin(email, password)
       .then((result) => {
-        navagiet(`${locations.state ? locations.state : "/"}`); /// navegite er kaj baki
+         toast.success("Successfully Login Now");
+        navagiet(`${locations.state ? locations.state : "/"}`); 
         console.log(result.user);
       })
       .catch((err) => {
@@ -35,7 +36,7 @@ const Login = () => {
 
   const gogleSignIn = () => {
     googleLogin().then(() => {
-      navagiet(`${locations.state ? locations.state : "/"}`); /// navegite er kaj baki
+      navagiet(`${locations.state ? locations.state : "/"}`); 
     });
   };
 
