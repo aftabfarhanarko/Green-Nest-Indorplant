@@ -16,7 +16,7 @@ const DetliseCard = ({ data }) => {
   return (
     <div className="w-11/12 mx-auto">
       <div className="py-10 md:w-9/12 mx-auto">
-        <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-pink-50 rounded-xl overflow-hidden transition-transform duration-300 hover:shadow-2xl shadow-xl">
+        <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-pink-50 rounded-xl overflow-hidden transition-transform duration-300  shadow-lg">
           <div className="md:flex md:items-start">
             {/* Image side */}
             <div className="md:w-1/2 flex items-center justify-center p-8 bg-gradient-to-t from-green-100/40">

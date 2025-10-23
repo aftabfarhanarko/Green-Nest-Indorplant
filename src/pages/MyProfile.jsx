@@ -39,9 +39,10 @@ const MyProfile = () => {
   return (
     <div>
       <title>User Profile</title>
-      <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+      <header className="fixed w-full  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
         <Navbar></Navbar>
       </header>
+       <div className="h-[100px] bg-white"></div>
       <main className="bg-gradient-to-br from-emerald-50 to-white">
         <div className="min-h-screen flex items-center justify-center  p-6 w-11/12 mx-auto">
           <motion.article
@@ -73,7 +74,7 @@ const MyProfile = () => {
                     <input
                       type="text"
                       name="name"
-                      className="input  focus:outline-none "
+                      className="input z-1  focus:outline-none "
                       placeholder="enter your name"
                       required
                     />
@@ -84,7 +85,7 @@ const MyProfile = () => {
                     <input
                       type="text"
                       name="photo"
-                      className="input focus:outline-none "
+                      className="input z-1 focus:outline-none "
                       placeholder="photo url"
                     />
                   </fieldset>

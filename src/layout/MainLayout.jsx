@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <div>
       <header>
-        <nav className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+        <nav className="fixed w-full z-20  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
           <Navbar></Navbar>
         </nav>
         <section className="hero-sections">

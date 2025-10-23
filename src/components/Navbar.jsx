@@ -16,7 +16,7 @@ const Navbar = () => {
     signOutUser();
   };
   return (
-    <div className="   flex justify-between items-center w-11/12 mx-auto py-2 ">
+    <div className=" z-9 flex justify-between items-center w-11/12 mx-auto py-2 ">
       <img className="w-20 h-20 border-2 rounded-full" src={logo}></img>
       <div className="hidden md:block md:flex gap-7 text-white font-semibold items-center">
         <NavLink to="/">Home</NavLink>
@@ -29,7 +29,7 @@ const Navbar = () => {
           {/* menu */}
           <button
             onClick={() => setOpen(!open)}
-            className="btn-ghost text-[45px] fixed -mt-6 right-10 z-50 text-black hover:text-green-700 transition-colors"
+            className="btn-ghost text-[45px] fixed -mt-6 right-5 z-50 text-black hover:text-green-700 transition-colors"
           >
             {open ? <IoCloseOutline /> : <IoMenuOutline />}
           </button>
@@ -120,7 +120,7 @@ const Navbar = () => {
         </div>
 
         {/* Drop Down MD Sceen  */}
-        <div className=" hidden md:block dropdown dropdown-center z-10 ">
+        <div className=" hidden md:block dropdown dropdown-center z-19 ">
           <div
             tabIndex={0}
             role="button"

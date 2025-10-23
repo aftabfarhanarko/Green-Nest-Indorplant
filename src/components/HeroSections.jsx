@@ -11,6 +11,9 @@ import { Link } from "react-router";
 const HeroSections = () => {
   return (
     <>
+    <div className="h-[98px] bg-white">
+
+    </div>
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}

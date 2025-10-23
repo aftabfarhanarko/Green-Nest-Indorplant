@@ -13,10 +13,10 @@ const PlantsDetails = () => {
   const filterData = data.filter((one) => one.plantId == plantId);
   return (
     <div>
-      <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+      <header className=" fixed w-full z-5 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
         <Navbar></Navbar>
       </header>
-
+ <div className="h-[98px] bg-white"></div>
       <main className="min-h-screen">
         {user ? filterData.map((data) => (
           <DetliseCard data={data} key={data.plantId}></DetliseCard>
