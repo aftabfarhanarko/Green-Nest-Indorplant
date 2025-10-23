@@ -4,30 +4,31 @@ import { Outlet, useNavigation } from "react-router";
 import Footer from "../components/Footer";
 import HeroSections from "../components/HeroSections";
 import Loder from "../components/Loder";
+import Critev from "../components/Critev";
 
 const MainLayout = () => {
   const navegit = useNavigation();
 
-  if(navegit.state === "loading"){
-    return <Loder></Loder>
+  if (navegit.state === "loading") {
+    return <Loder></Loder>;
   }
   return (
-    
     <div>
       <header>
         <nav className="fixed w-full z-20  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
           <Navbar></Navbar>
         </nav>
         <section className="hero-sections">
-       <HeroSections></HeroSections>
+          <HeroSections></HeroSections>
         </section>
       </header>
       <main>
-       {
-        navegit.state === "loading" ? (<Loder></Loder>) 
-        : <Outlet></Outlet>
-       }
+        {navegit.state === "loading" ? <Loder></Loder> : <Outlet></Outlet>}
       </main>
+
+      <section className="my-17 w-11/12 mx-auto">
+        <Critev></Critev>
+      </section>
 
       <footer>
         <Footer></Footer>
