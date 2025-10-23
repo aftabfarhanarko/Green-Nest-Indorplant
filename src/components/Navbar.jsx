@@ -53,6 +53,8 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        
+
         <div className="dropdown dropdown-center z-10 ">
           <div
             tabIndex={0}

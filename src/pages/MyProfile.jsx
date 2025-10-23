@@ -92,7 +92,6 @@ const MyProfile = () => {
                     type="submit"
                     className="group flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium hover:bg-emerald-600 active:scale-95 transition-transform shadow-md  mt-3"
                   >
-                    {/* <GoSignOut className="h-4 w-4 text-white group-hover:rotate-6 transition-transform" /> */}
                     <span>Update User</span>
                   </button>
                 </form>

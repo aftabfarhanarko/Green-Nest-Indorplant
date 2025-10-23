@@ -7,15 +7,19 @@ import tips4 from "../assets/tips5.jpg";
 import expart1 from "../assets/expart1.jpg";
 import expart2 from "../assets/expart2.jpg";
 import expart3 from "../assets/expart3.jpg";
-import Aos from "aos";
+import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
   const promiseDara = useLoaderData();
   const dataSlice = promiseDara.slice(0, 8);
-  console.log(dataSlice);
   useEffect(() => {
-    Aos.init({ duration: 1000 });
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+      once: true,
+    });
+    AOS.refresh();
   }, []);
 
   return (
@@ -76,7 +80,10 @@ const Home = () => {
             data-aos="fade-up"
             className=" md:flex justify-center items-center gap-20 mx-auto rounded-lg "
           >
-            <img className="mx-w-[650px] max-h-[405px] rounded-md" src={tips3}></img>
+            <img
+              className="mx-w-[650px] max-h-[405px] rounded-md"
+              src={tips3}
+            ></img>
             <p className="mt-6 md:mt-0 max-w-[600px] text-accent text-justify">
               <span className="text-lg font-semibold mt-4 ">Care Tips : </span>
               <br></br>
@@ -88,20 +95,21 @@ const Home = () => {
               the root.
             </p>
           </div>
-
-
         </div>
       </section>
 
       <section>
-        <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce animate-pulse  ">
+        <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold  animate-pulse  ">
           <span className="text-lime-500"> Meet Our</span>{" "}
           <span className="text-green-500"> Green Experts</span>{" "}
         </h1>
 
-        <div>
+        <section>
           <div className=" md:pl-0 md:flex justify-between ">
-            <div className="   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <section
+              data-aos="fade-up"
+              className="   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl"
+            >
               {/* Profile Image */}
               <img
                 className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
@@ -124,9 +132,12 @@ const Home = () => {
 
               {/* Decorative line */}
               <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
-            </div>
+            </section>
 
-            <div className=" mt-5 md:mt-0 max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <section
+              data-aos="fade-up"
+              className=" mt-5 md:mt-0   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl"
+            >
               {/* Profile Image */}
               <img
                 className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
@@ -146,8 +157,11 @@ const Home = () => {
 
               {/* Decorative line */}
               <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
-            </div>
-            <div className=" mt-5 md:mt-0 max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            </section>
+            <section
+              data-aos="fade-up"
+              className=" mt-5 md:mt-0   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl"
+            >
               {/* Profile Image */}
               <img
                 className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
@@ -167,9 +181,9 @@ const Home = () => {
 
               {/* Decorative line */}
               <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
-            </div>
+            </section>
           </div>
-        </div>
+        </section>
       </section>
     </div>
   );

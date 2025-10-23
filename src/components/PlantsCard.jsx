@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PlantsCard = ({ plant }) => {
+   useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        offset: 100,
+        once: true,
+      });
+      AOS.refresh();
+    }, []);
   return (
     <>
       <motion.article
@@ -11,7 +21,9 @@ const PlantsCard = ({ plant }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-lg overflow-hidden transition transform hover:scale-105 hover:shadow-2xl hover:animate duration-300">
+        <div
+         data-aos="fade-up"
+        className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-lg overflow-hidden hover:shadow-2xl ">
           <img
             src={plant.image}
             alt={plant.plantName}

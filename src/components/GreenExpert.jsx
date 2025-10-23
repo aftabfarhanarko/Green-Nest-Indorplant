@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegStar } from "react-icons/fa";
 import { Link } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const GreenExpert = ({ plant }) => {
-  // console.log(plant)
+   useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        offset: 100,
+        once: true,
+      });
+      AOS.refresh();
+    }, []);
 
   return (
-    <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-lg overflow-hidden transition transform hover:scale-105 hover:shadow-2xl hover:animate duration-300">
+    <section
+    data-aos="fade-up"
+    className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-lg overflow-hidden  ">
       <img
         src={plant.image}
         alt={plant.plantName}
@@ -51,7 +62,7 @@ const GreenExpert = ({ plant }) => {
           </button>
         </Link>
       </div>
-    </div>
+    </section>
 
     // ai card ta chatgpt copy kore creat kora  nije lickta hobe na hoila shomosha
   );

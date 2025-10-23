@@ -3,8 +3,8 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
 
+
 const DetliseCard = ({ data }) => {
-  console.log(data);
   const p = data;
 
   const handelSubmit = (e) => {
