@@ -26,9 +26,7 @@ const MainLayout = () => {
         {navegit.state === "loading" ? <Loder></Loder> : <Outlet></Outlet>}
       </main>
 
-      <section className="my-17 w-11/12 mx-auto">
-        <Critev></Critev>
-      </section>
+     
 
       <footer>
         <Footer></Footer>

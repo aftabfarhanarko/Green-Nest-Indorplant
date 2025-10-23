@@ -7,8 +7,11 @@ import tips4 from "../assets/tips5.jpg";
 import expart1 from "../assets/expart1.jpg";
 import expart2 from "../assets/expart2.jpg";
 import expart3 from "../assets/expart3.jpg";
+import expart4 from "../assets/expart4.jpg";
+import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Critev from "../components/Critev";
 
 const Home = () => {
   const promiseDara = useLoaderData();
@@ -24,12 +27,10 @@ const Home = () => {
 
   return (
     <div className="my-20 w-11/12 mx-auto">
-
-         
       <section className="my-20">
         <h1 className="text-4xl md:text-5xl text-center mb-19 font-semibold hover:animate-bounce  ">
           <span className="text-green-500"> Plant Care</span>{" "}
-          <span className="text-lime-500"> ips Section 🪴</span>{" "}
+          <span className="text-lime-500"> Tips Section 🪴</span>{" "}
         </h1>
 
         <div className=" flex flex-col mx-auto  gap-10 justify-between mt-10">
@@ -89,6 +90,10 @@ const Home = () => {
         </div>
       </section>
 
+ <section className="my-17 w-11/12 mx-auto">
+        <Critev></Critev>
+      </section>
+
       <div>
         <h1 className="text-4xl md:text-5xl text-center my-15 font-semibold hover:animate-bounce  ">
           <span className="text-green-500"> Top Rated</span>{" "}
@@ -100,20 +105,17 @@ const Home = () => {
           ))}
         </div>
       </div>
-
+      
 
       <section className="my-15">
         <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold  animate-pulse  ">
           <span className="text-lime-500"> Meet Our</span>{" "}
-          <span className="text-green-500"> Green Experts</span>{" "}
+          <span className="text-green-500"> Green Experts Team</span>{" "}
         </h1>
 
-        <section>
-          <div className=" md:pl-0 md:flex justify-between ">
-            <section
-              data-aos="fade-up"
-              className="   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl"
-            >
+        <Marquee className=" cursor-pointer" pauseOnHover={true} speed={70}>
+          <div className="flex gap-10 items-center md:items-center">
+            <p className="  max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl">
               {/* Profile Image */}
               <img
                 className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
@@ -131,17 +133,37 @@ const Home = () => {
                 <span className="font-semibold animate-pulse">
                   Specialization:
                 </span>{" "}
-                Indoor plant styling & sustainable decor
+                Indoor plant styling & sustainable dector
               </p>
 
               {/* Decorative line */}
               <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
-            </section>
+            </p>
 
-            <section
-              data-aos="fade-up"
-              className=" mt-5 md:mt-0   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl"
-            >
+            <p className="   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl">
+              {/* Profile Image */}
+              <img
+                className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
+                src={expart4}
+                alt="Expert"
+              />
+
+              {/* Expert Info */}
+              <h3 className="text-xl font-bold mt-2"> Miss Smith </h3>
+              <p className="text-sm font-medium text-green-100">Green Lover</p>
+              <p className="text-center text-sm mt-2 leading-relaxed animate-pulse">
+                🌿{" "}
+                <span className="font-semibold animate-pulse">
+                  Specialization:
+                </span>{" "}
+                Home plant styling & sustainable dector
+              </p>
+
+              {/* Decorative line */}
+              <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
+            </p>
+
+            <p className=" mt-5 md:mt-0   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl">
               {/* Profile Image */}
               <img
                 className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
@@ -161,11 +183,9 @@ const Home = () => {
 
               {/* Decorative line */}
               <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
-            </section>
-            <section
-              data-aos="fade-up"
-              className=" mt-5 md:mt-0   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl"
-            >
+            </p>
+
+            <p className=" mt-5 md:mt-0   max-w-[400px] bg-gradient-to-br from-green-700 via-emerald-600 to-green-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center gap-3  hover:shadow-2xl">
               {/* Profile Image */}
               <img
                 className="w-[120px] h-[120px] rounded-full border-4 border-white shadow-md object-cover"
@@ -185,9 +205,9 @@ const Home = () => {
 
               {/* Decorative line */}
               <div className="w-20 h-[2px] bg-white/50 mt-2"></div>
-            </section>
+            </p>
           </div>
-        </section>
+        </Marquee>
       </section>
     </div>
   );

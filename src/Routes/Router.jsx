@@ -10,6 +10,7 @@ import MyProfile from "../pages/MyProfile";
 import PrivetRoute from "../provider/PrivetRoute";
 import Loder from "../components/Loder";
 import PlantsDetails from "../pages/PlantsDetails";
+import Page404 from "../pages/Page404";
 
 export const router = createBrowserRouter([
   {
@@ -62,8 +63,8 @@ export const router = createBrowserRouter([
   },
 
   {
-    path:"*",
-    element:<h1>Not Pages FOundes path error</h1>
+    path:"/*",
+    element:<Page404></Page404>
   }
 ]);
 
