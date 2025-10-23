@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import { useNavigation } from "react-router";
+import Loder from "../components/Loder";
 
 const MyProfile = () => {
   const { user, updeatUserProfile, ubdeatRealTimeDataBase, setRelUser } =
@@ -36,13 +38,17 @@ const MyProfile = () => {
       });
   };
 
+  const navegit = useNavigation();
   return (
     <div>
       <title>User Profile</title>
-      <header className="fixed w-full  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+      <header className="fixed w-full z-5  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
         <Navbar></Navbar>
       </header>
        <div className="h-[100px] bg-white"></div>
+       {
+        navegit.state === "loading" ? <Loder></Loder> 
+        : 
       <main className="bg-gradient-to-br from-emerald-50 to-white">
         <div className="min-h-screen flex items-center justify-center  p-6 w-11/12 mx-auto">
           <motion.article
@@ -105,6 +111,8 @@ const MyProfile = () => {
           </motion.article>
         </div>
       </main>
+       }
+
       <footer>
         <Footer></Footer>
       </footer>

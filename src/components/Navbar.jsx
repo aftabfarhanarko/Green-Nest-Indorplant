@@ -4,7 +4,8 @@ import { Link, NavLink, useParams } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
 import { ScaleLoader } from "react-spinners";
-import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import { IoClose, IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import { TbMenu2 } from "react-icons/tb";
 
 const Navbar = () => {
   const { user, loding, signOutUser } = useContext(AuthContext);
@@ -29,9 +30,9 @@ const Navbar = () => {
           {/* menu */}
           <button
             onClick={() => setOpen(!open)}
-            className="btn-ghost text-[45px] fixed -mt-6 right-5 z-50 text-black hover:text-green-700 transition-colors"
+            className="btn-ghost text-[32px] font-bold fixed -mt-4 right-5 z-50 text-black hover:text-green-700 transition-colors"
           >
-            {open ? <IoCloseOutline /> : <IoMenuOutline />}
+            {open ? <IoClose /> : <TbMenu2 />}
           </button>
 
           <div

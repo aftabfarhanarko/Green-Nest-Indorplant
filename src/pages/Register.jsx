@@ -22,6 +22,7 @@ const Register = () => {
     const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!validPassword.test(password)) {
       setEr("Password must contain A-Z, a-z & 6+ chars");
+      toast.error("Password must contain A-Z, a-z & 6+ chars")
       return;
     }
     const ubdet = {
@@ -46,6 +47,7 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.code)
         setEr(err);
       });
   };

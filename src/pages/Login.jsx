@@ -30,6 +30,7 @@ const Login = () => {
       })
       .catch((err) => {
         setEr(err.message);
+        toast.error(err.code)
         console.log(err.message);
       });
   };
