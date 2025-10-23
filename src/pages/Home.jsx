@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import GreenExpert from "../components/GreenExpert";
 import tips1 from "../assets/tips1.jpg";
-import tips3 from "../assets/tips3.jpsg.jpg";
+import tips3 from "../assets/tips4.jpg";
 import tips4 from "../assets/tips5.jpg";
 import expart1 from "../assets/expart1.jpg";
 import expart2 from "../assets/expart2.jpg";
@@ -30,20 +30,22 @@ const Home = () => {
           <GreenExpert plant={plant} key={plant.id}></GreenExpert>
         ))}
       </div>
+
       <section className="my-20">
         <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce  ">
           <span className="text-green-500"> Plant Care</span>{" "}
           <span className="text-lime-500"> ips Section 🪴</span>{" "}
         </h1>
 
-        <div className=" md:flex gap-10 justify-between mt-10">
+        <div className=" flex flex-col mx-auto  gap-10 justify-between mt-10">
           <div
             data-aos="fade-up"
-            className="shadow-lg  bg-base-100 rounded-lg p-5"
+            className=" md:flex justify-center items-center gap-20 mx-auto rounded-lg "
           >
-            <img className="w-[600px] rounded-2xl" src={tips1}></img>
-            <p className="text-lg font-semibold mt-4"> Care Tips</p>
-            <p className="max-w-[600px] text-accent">
+            <img className="mx-w-[650px] rounded-md" src={tips1}></img>
+            <p className="mt-6 md:0 max-w-[600px] text-accent text-justify">
+              <span className="text-lg font-semibold mt-4"> Care Tips : </span>{" "}
+              <br></br>
               Water according to soil type: Sandy soil dries fast, clay retains
               water. Know the plant type: Succulents need little water, ferns
               and leafy plants need more. Check soil moisture: Water when the
@@ -52,13 +54,14 @@ const Home = () => {
               summer, less in winter.
             </p>
           </div>
+
           <div
             data-aos="fade-up"
-            className="shadow-lg mt-6 md:mt-0  bg-base-100 rounded-lg p-5"
+            className=" flex flex-col-reverse md:flex-row  justify-center items-center gap-20 mt-4 md:mt-5   "
           >
-            <img className="w-[600px] rounded-2xl" src={tips4}></img>
-            <p className="text-lg font-semibold mt-4"> Care Tips</p>
-            <p className="max-w-[600px] text-accent">
+            <p className="-mt-14  md:mt-0 max-w-[600px]  text-accent text-justify">
+              <span className="text-lg font-semibold mt-4"> Care Tips : </span>
+              <br></br>
               Always remove dead or yellow leaves from your plant to help it
               stay healthy. Use clean, sharp scissors or pruning shears to cut
               the leaf close to the base without hurting new growth. This
@@ -66,14 +69,17 @@ const Home = () => {
               focus its energy on new, fresh leaves. Do this regularly to keep
               your plant looking green, healthy, and beautiful!
             </p>
+            <img className="mx-w-[650px] rounded-md" src={tips4}></img>
           </div>
+
           <div
             data-aos="fade-up"
-            className="shadow-lg mt-6 md:mt-0  bg-base-100 rounded-lg p-5"
+            className=" md:flex justify-center items-center gap-20 mx-auto rounded-lg "
           >
-            <img className="w-[600px] rounded-2xl" src={tips3}></img>
-            <p className="text-lg font-semibold mt-4"> Care Tips</p>
-            <p className="max-w-[600px] text-accent">
+            <img className="mx-w-[650px] max-h-[405px] rounded-md" src={tips3}></img>
+            <p className="mt-6 md:mt-0 max-w-[600px] text-accent text-justify">
+              <span className="text-lg font-semibold mt-4 ">Care Tips : </span>
+              <br></br>
               First, make sure your hands and tools are clean. Water the soil
               lightly a day before working, so it’s soft. Use a small hand fork
               or trowel for easier digging. Start around the base of the plant,
@@ -82,6 +88,8 @@ const Home = () => {
               the root.
             </p>
           </div>
+
+
         </div>
       </section>
 
@@ -107,8 +115,11 @@ const Home = () => {
                 EcoBloom Interiors
               </p>
               <p className="text-center text-sm mt-2 leading-relaxed animate-pulse">
-                🌿 <span className="font-semibold animate-pulse">Specialization:</span> Indoor
-                plant styling & sustainable decor
+                🌿{" "}
+                <span className="font-semibold animate-pulse">
+                  Specialization:
+                </span>{" "}
+                Indoor plant styling & sustainable decor
               </p>
 
               {/* Decorative line */}

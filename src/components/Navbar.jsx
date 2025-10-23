@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import logo from "../assets/logo.png";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useParams } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
 import { ScaleLoader } from "react-spinners";
 
 const Navbar = () => {
+
   const { user, loding, signOutUser } = useContext(AuthContext);
-   console.log(user);
+  const my = useParams();
+  console.log(my);
+
   const outUser = () => {
     signOutUser();
   };
@@ -19,7 +22,7 @@ const Navbar = () => {
         <NavLink to="/plants">Plants</NavLink>
         <NavLink to="/profile">My Profile</NavLink>
 
-        {/* {user && <NavLink to="/detlise">Plant Detlise</NavLink>} */}
+
       </div>
       <div>
         <div className="hidden  drawer drawer-end">

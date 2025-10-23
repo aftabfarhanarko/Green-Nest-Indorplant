@@ -10,12 +10,11 @@ const PrivetRoute = ({ children }) => {
 
   if (loding) {
     return <Loder></Loder>;
-  }
-
-  if (user) {
+  } else if (user) {
     return children;
-  } 
-    return <Navigate state={locations.pathname} to="/auth/login"></Navigate>;
+  } else{
+     return <Navigate state={locations.pathname} to="/auth/login"></Navigate>;
+  }
   
 };
 

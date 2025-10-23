@@ -15,6 +15,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    hydrateFallbackElement:<Loder></Loder>,
     children: [
       {
         index: true,
@@ -60,19 +61,10 @@ export const router = createBrowserRouter([
     element: <PrivetRoute><PlantsDetails></PlantsDetails></PrivetRoute>
   },
 
-  // {
-  //   path:"*",
-  //   element:<h1>Not Pages FOundes path error</h1>
-  // }
+  {
+    path:"*",
+    element:<h1>Not Pages FOundes path error</h1>
+  }
 ]);
 
 
-/**
- *   <footer>
-        <Footer></Footer>
-      </footer>
-      
-        <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
-        <Navbar></Navbar>
-      </header>
- */

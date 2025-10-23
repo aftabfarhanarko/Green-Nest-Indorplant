@@ -6,37 +6,39 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
 const MyProfile = () => {
-  const { user,relUser, updeatUserProfile,ubdeatRealTimeDataBase,setRelUser } = useContext(AuthContext);
-
-
+  const { user, updeatUserProfile, ubdeatRealTimeDataBase, setRelUser } =
+    useContext(AuthContext);
 
   const handelRegister = (e) => {
     e.preventDefault();
     const displayName = e.target.name?.value.trim();
     const photoURL = e.target.photo?.value.trim();
-     e.target.reset();
-    if(!displayName && !photoURL){
+    e.target.reset();
+    if (!displayName && !photoURL) {
       toast.error("Please Provide a Name or Photo URl!");
       return;
     }
-    const useraData = {displayName, photoURL};
+    const useraData = { displayName, photoURL };
     updeatUserProfile(useraData)
-    .then(() => {
-      return ubdeatRealTimeDataBase(user.uid, useraData);
-    }).then(() => {
-      setRelUser((prev) => ({
-        ...prev,
-        displayName,photoURL,
-      }));
-      toast.success("Profile Updeat Successfully!")
-    }).catch((err) => {
-      toast.error(err.code || "Something went Wrong!");
-    });
-  }
-
+      .then(() => {
+        return ubdeatRealTimeDataBase(user.uid, useraData);
+      })
+      .then(() => {
+        setRelUser((prev) => ({
+          ...prev,
+          displayName,
+          photoURL,
+        }));
+        toast.success("Profile Updeat Successfully!");
+      })
+      .catch((err) => {
+        toast.error(err.code || "Something went Wrong!");
+      });
+  };
 
   return (
     <div>
+      <title>User Profile</title>
       <header className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
         <Navbar></Navbar>
       </header>
