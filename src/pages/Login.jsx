@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useLocation, useNavigate, useNavigation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
@@ -10,7 +10,6 @@ const Login = () => {
   const [er, setEr] = useState();
   const navagiet = useNavigate();
   const locations = useLocation();
-  console.log(locations);
 
   const refernce = useRef(null);
 
@@ -20,31 +19,29 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log({ email, password });
 
     userLogin(email, password)
-      .then((result) => {
-         toast.success("Successfully Login Now");
-        navagiet(`${locations.state ? locations.state : "/"}`); 
-        console.log(result.user);
+      .then(() => {
+        toast.success("Successfully Login Now");
+        navagiet(`${locations.state ? locations.state : "/"}`);
       })
       .catch((err) => {
         setEr(err.message);
-        toast.error(err.code)
-        console.log(err.message);
+        toast.error(err.code);
       });
   };
 
   const gogleSignIn = () => {
     googleLogin().then(() => {
-      navagiet(`${locations.state ? locations.state : "/"}`); 
+       toast.success("Successfully Login Google");
+      navagiet(`${locations.state ? locations.state : "/"}`);
     });
   };
 
   const passwordResetGmail = () => {
     const email = refernce.current.value;
     emailVerify(email)
-      .then((result) => {
+      .then(() => {
         toast.success("Your Password Reset Mail Provied Now");
         window.open("https://mail.google.com/mail/u/0/", "_blank");
       })
@@ -88,7 +85,7 @@ const Login = () => {
                   className="absolute right-7 top-8 z-2 cursor-pointer text-md"
                   onClick={() => setShow(!show)}
                 >
-                  {show ?  <FaEye />: <FaEyeSlash />}
+                  {show ? <FaEye /> : <FaEyeSlash />}
                 </div>
               </div>
 

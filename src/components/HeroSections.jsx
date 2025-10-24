@@ -26,10 +26,8 @@ const HeroSections = () => {
                 <span> Indoor Plant</span> <br></br>
                 <span className="text-lime-500"> Care & Store</span>{" "}
               </h1>
-              <p className="text-md md:text-lg my-5 text-accent">
-                Bring freshness and life to your home. <br></br>
-                Discover handpicked indoor plants and expert care tips.<br></br>
-                Grow green, live better — with GreenNest.
+             <p className="text-md md:text-lg my-5 text-accent max-w-[500px] text-justify">
+                GreenNest Indoor Plant Care & Store is your one-stop destination for all things green and serene. 🌱 From lush indoor plants to expert care tips, GreenNest helps you transform your living space into a natural retreat. Our handpicked collection and eco-friendly care products. 
               </p>
               <Link
                 to="/plants"
@@ -40,7 +38,7 @@ const HeroSections = () => {
             </div>
             <div className="border border-base-300 rounded-xl mt-6 md:mt-0 ">
               <img
-                className=" max-w-full md:max-w-[1000px]  rounded-xl"
+             className=" max-w-full md:max-w-[1000px] h-[295px] md:h-[650px]  rounded-xl"
                 src={hero}
               ></img>
             </div>
@@ -73,7 +71,7 @@ const HeroSections = () => {
             </div>
             <div className="border border-base-300 rounded-xl mt-6 md:mt-0  ">
               <img
-                className=" max-w-full md:max-w-[1000px] h-[255px] md:h-[650px]  rounded-xl"
+                className=" max-w-full md:max-w-[1000px] h-[295px] md:h-[650px]  rounded-xl"
                 src={hero2}
               ></img>
             </div>
@@ -83,14 +81,12 @@ const HeroSections = () => {
           <div className="   md:flex w-11/12 mx-auto justify-between items-center py-10 ">
             <div>
               <h1 className="text-3xl md:text-6xl font-bold ">
-                <span className="text-green-500"> GreenNest</span>{" "}
-                <span> Indoor Plant</span> <br></br>
-                <span className="text-lime-500"> Care & Store</span>{" "}
+                <span className="text-green-500"> Plant Care Tips</span>{" "}
+                <span> Section Our Plant </span> <br></br>
+                <span className="text-lime-500"> For Anyone</span>{" "}
               </h1>
-              <p className=" text-md md:text-lg my-5 text-accent">
-                Bring freshness and life to your home. <br></br>
-                Discover handpicked indoor plants and expert care tips.<br></br>
-                Grow green, live better — with GreenNest.
+              <p className="text-md md:text-lg my-5 text-accent max-w-[500px] text-justify">
+                GreenNest Indoor Plant Care & Store is your one-stop destination for all things green and serene. 🌱 From lush indoor plants to expert care tips, GreenNest helps you transform your living space into a natural retreat. Our handpicked collection and eco-friendly care products. 
               </p>
               <Link
                 to="/plants"
@@ -101,7 +97,7 @@ const HeroSections = () => {
             </div>
             <div className="border border-base-300 rounded-xl  mt-6 md:mt-0 ">
               <img
-                className=" max-w-full md:max-w-[1000px]  rounded-xl"
+                className=" max-w-full md:max-w-[1000px] h-[295px] md:h-[650px]  rounded-xl"
                 src={hero3}
               ></img>
             </div>

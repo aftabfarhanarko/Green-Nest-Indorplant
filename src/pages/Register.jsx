@@ -17,12 +17,11 @@ const Register = () => {
     const displayName = e.target.name?.value;
     const photoURL = e.target.photo.value;
     const password = e.target.password.value;
-    const rememberMe = e.target.rememberMe;
-    console.log(rememberMe.checked);
+
     const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!validPassword.test(password)) {
-      setEr("Password must contain A-Z, a-z & 6+ chars");
       toast.error("Password must contain A-Z, a-z & 6+ chars")
+      setEr("Password must contain A-Z, a-z & 6+ chars");
       return;
     }
     const ubdet = {
@@ -32,23 +31,20 @@ const Register = () => {
 
     setEr("");
     creatUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
 
         updeatUserProfile(ubdet)
           .then(() => {
-            navegit("/");
             toast.success("Successfully Register Now");
+            navegit("/");
           })
-          .catch((err) => {
+          .catch((er) => {
              toast.error(er.code);
-            console.log(err.message);
           });
       })
       .catch((err) => {
-        console.log(err);
-        toast.error(err.code)
         setEr(err);
+        toast.error(err.code)
       });
   };
   return (

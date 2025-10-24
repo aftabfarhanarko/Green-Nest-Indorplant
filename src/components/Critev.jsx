@@ -35,7 +35,7 @@ const Critev = () => {
 
   return (
     <div>
-      <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce  ">
+      <h1 className="text-3xl md:text-5xl text-center mb-15 font-semibold hover:animate-bounce  ">
         <span className="text-green-500"> Plant Style Your Room </span>{" "}
         <br></br>
         <span className="text-lime-500"> and Outside Of Your Room</span>{" "}

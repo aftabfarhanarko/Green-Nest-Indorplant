@@ -107,7 +107,7 @@ const Home = () => {
       </div>
 
       <section className="my-15">
-        <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold  animate-pulse  ">
+        <h1 className="text-3xl md:text-5xl text-center mb-15 font-semibold  animate-pulse  ">
           <span className="text-lime-500"> Meet Our</span>{" "}
           <span className="text-green-500"> Green Experts Team</span>{" "}
         </h1>

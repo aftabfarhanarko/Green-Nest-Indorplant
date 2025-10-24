@@ -13,7 +13,7 @@ const DetliseCard = ({ data }) => {
   };
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className=" md:w-11/12 mx-auto">
       <div className="py-10 md:w-9/12 mx-auto">
         <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-pink-50 rounded-xl overflow-hidden transition-transform duration-300  shadow-lg">
           <div className="md:flex md:items-start">
@@ -22,12 +22,12 @@ const DetliseCard = ({ data }) => {
               <img
                 src={p.image}
                 alt={p.plantName}
-                className="w-full max-h-[650px] rounded-2xl object-cover object-center transition-transform duration-700 ease-in-out hover:scale-110 shadow-md"
+                className="w-full max-h-[650px] rounded-2xl object-cover object-center transition-transform duration-700 ease-in-out hover:scale-105 shadow-md"
               />
             </div>
 
             {/* Info side */}
-            <div className="md:w-1/2 p-8 flex flex-col justify-between">
+            <div className="md:w-1/2 p-3 md:p-8 flex flex-col justify-between">
               <div>
                 <h1 className=" text-2xl md:text-4xl font-bold  text-gray-800 mb-2 tracking-tight">
                   {p.plantName}
@@ -77,13 +77,13 @@ const DetliseCard = ({ data }) => {
               <div className="mt-4 flex flex-wrap items-center gap-4">
                
                 <Link to="/">
-                  <button className="px-5 py-1.5 rounded-full border border-green-300 font-medium text-gray-700 hover:bg-green-50 transition-all duration-200">
+                  <button className="px-5 py-1.5 rounded-full border border-green-300 font-medium text-gray-700  hover:bg-green-600 hover:text-white transition-all duration-200">
                     Back Home
                   </button>
                 </Link>
 
                 <Link to="/plants">
-                  <button className="px-6 py-1.5 rounded-full bg-green-600 text-white font-semibold shadow-md hover:bg-green-700 hover:shadow-lg transition-all duration-200">
+                  <button className="px-6 py-1.5 rounded-full bg-green-600 text-white font-semibold shadow-md hover:bg-green-800 hover:shadow-lg transition-all duration-200">
                     More Plants
                   </button>
                 </Link>

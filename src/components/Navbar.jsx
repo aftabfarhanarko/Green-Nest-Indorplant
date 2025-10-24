@@ -9,8 +9,7 @@ import { TbMenu2 } from "react-icons/tb";
 
 const Navbar = () => {
   const { user, loding, signOutUser } = useContext(AuthContext);
-  // const my = useParams();
-  // console.log(my);
+ 
   const [open, setOpen] = useState(false);
 
   const outUser = () => {
