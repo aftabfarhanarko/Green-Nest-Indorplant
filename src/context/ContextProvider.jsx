@@ -100,7 +100,8 @@ const ContextProvider = ({ children }) => {
     emailVerify,
     updeatUserProfile,
     ubdeatRealTimeDataBase,
-    relUser
+    relUser,
+    setLoding
   };
   return (
     <div>

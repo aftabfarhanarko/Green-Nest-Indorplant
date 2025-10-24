@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaRegUser } from "react-icons/fa";
 import { Link, Navigate, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { toast } from "react-toastify";
@@ -62,14 +62,18 @@ const Register = () => {
           <form onSubmit={handelRegister}>
             <fieldset className="fieldset">
               {/* Name */}
-              <label className="label font-semibold">Full Name</label>
+             <div className="relative">
+               <label className="label font-semibold ">Full Name</label>
               <input
                 type="text"
                 name="name"
-                className="input  focus:outline-none "
+                className="input pl-7  focus:outline-none  "
                 placeholder="enter your name"
                 required
               />
+              <FaRegUser className=" absolute top-8.5 left-3 z-4 w-[14px] h-[11px]" />
+             </div>
+
               {/* {erra && <p className="text-xs text-red-500">{erra}</p>} */}
 
               {/* Photo Url */}
@@ -103,7 +107,7 @@ const Register = () => {
                   required
                 />
                 <div
-                  className="absolute right-7 top-8 z-10  cursor-pointer text-md"
+                  className="absolute right-7 top-8 z-2  cursor-pointer text-md"
                   onClick={() => setShow(!show)}
                 >
                   {show ? <FaEye /> : <FaEyeSlash />}

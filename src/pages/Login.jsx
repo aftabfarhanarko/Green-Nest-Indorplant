@@ -85,10 +85,10 @@ const Login = () => {
                   required
                 />
                 <div
-                  className="absolute right-7 top-8 z-10 cursor-pointer text-md"
+                  className="absolute right-7 top-8 z-2 cursor-pointer text-md"
                   onClick={() => setShow(!show)}
                 >
-                  {show ? <FaEyeSlash /> : <FaEye />}
+                  {show ?  <FaEye />: <FaEyeSlash />}
                 </div>
               </div>
 

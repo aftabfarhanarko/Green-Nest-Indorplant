@@ -6,9 +6,10 @@ import Footer from "../components/Footer";
 const AuthLayout = () => {
   return (
     <div>
-      <nav className="bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
+       <header className=" fixed w-full z-5 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
         <Navbar></Navbar>
-      </nav>
+      </header>
+      <div className="h-[98px] bg-white"></div>
       <main>
         <Outlet></Outlet>
       </main>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link, NavLink, useParams } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
 import { ScaleLoader } from "react-spinners";
@@ -9,8 +9,8 @@ import { TbMenu2 } from "react-icons/tb";
 
 const Navbar = () => {
   const { user, loding, signOutUser } = useContext(AuthContext);
-  const my = useParams();
-  console.log(my);
+  // const my = useParams();
+  // console.log(my);
   const [open, setOpen] = useState(false);
 
   const outUser = () => {
