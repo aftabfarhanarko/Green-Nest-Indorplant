@@ -24,7 +24,6 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const Critev = () => {
-  const [my, setMy] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -70,7 +69,10 @@ const Critev = () => {
           </div>
 
           <div data-aos="fade-up" className="px-6 text-justify">
-            <h1 data-aos="fade-up" className="text-center text-lg font-semibold mt-10">
+            <h1
+              data-aos="fade-up"
+              className="text-center text-lg font-semibold mt-10"
+            >
               {" "}
               Gorgias Desing
             </h1>
@@ -93,7 +95,10 @@ const Critev = () => {
           <h1 className="text-center text-lg mt-15 font-semibold">
             Self Design Patel
           </h1>
-          <p data-aos="fade-up" className="text-accent text-justify  max-w-[700px] mx-auto ">
+          <p
+            data-aos="fade-up"
+            className="text-accent text-justify  max-w-[700px] mx-auto "
+          >
             <span className="text-lg font-semibold">How to Design : </span> Self
             Design Patel is a creative concept that focuses on unique,
             personalized design patterns inspired by traditional motifs. Each
@@ -101,52 +106,44 @@ const Critev = () => {
             aesthetics with cultural elegance. Perfect for adding a touch of
             style and sophistication to any space.
           </p>
-          <button
-            onClick={() => setMy(!my)}
-            className="max-w-[150px]  btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-whit text-white mt-4 w-full"
-          >
-            Exporle
-          </button>
 
-          {my && (
-            <div className="relative mt-12 w-full px-4">
-              <div
-                className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r 
+          <div className="relative mt-12 w-full px-4">
+            <div
+              className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r 
             from-white via-white/70  to-transparent pointer-events-none z-10  "
-              ></div>
+            ></div>
 
-              <div
-                className="absolute right-0  top-0 h-full w-8 bg-gradient-to-l 
+            <div
+              className="absolute right-0  top-0 h-full w-8 bg-gradient-to-l 
             from-white via-white/70  to-transparent pointer-events-none z-10  "
-              ></div>
+            ></div>
 
-              <div
-                className="
+            <div
+              className="
              flex gap-6 overflow-x-auto md:grid md:grid-cols-3 
              lg:grid-cols-6 md:overflow-visible scroll-smooth snap-x 
              snap-mandatory scrollbar-hide py-4  "
-              >
-                {[sel1, sel2, sel3, sel6, sel5, sel4].map((img, i) => (
-                  <div
-                    key={i}
-                    className="flex-shrink-0 snap-center md:snap-none relative group "
-                  >
-                    <img
-                      src={img}
-                      className="w-[220px] sm:w-[260px] md:w-full max-h-[400px]
+            >
+              {[sel1, sel2, sel3, sel6, sel4, sel5].map((img, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 snap-center md:snap-none relative group "
+                >
+                  <img
+                    src={img}
+                    className="w-[220px] sm:w-[260px] md:w-full max-h-[400px]
                     rounded-2xl object-cover shadow-md transition-all 
                     duration-500 group-hover:scale-105 group-hover:shadow-xl   "
-                    ></img>
-                    <div
-                      className="absolute inset-0 rounded-2xl 
+                  ></img>
+                  <div
+                    className="absolute inset-0 rounded-2xl 
                     bg-gradient-to-t from-black/50 via-transparent
                     opacity-0 group-hover:opacity-100 transition-opacity duration-500      "
-                    ></div>
-                  </div>
-                ))}
-              </div>
+                  ></div>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

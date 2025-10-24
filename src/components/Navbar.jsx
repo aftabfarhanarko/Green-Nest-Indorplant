@@ -44,71 +44,74 @@ const Navbar = () => {
           >
             <div className="p-6">
               <h2 className="text-xl font-semibold  text-green-700">🌿 Menu</h2>
-              <ul className="menu space-y-2">
-                <li>
-                  <NavLink
-                    to="/"
-                    className="text-lg font-medium hover:text-green-600 transition"
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/plants"
-                    className="text-lg font-medium hover:text-green-600 transition"
-                  >
-                    Plants
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/profile"
-                    className="text-lg font-medium hover:text-green-600 transition"
-                  >
-                    My Profile
-                  </NavLink>
-                </li>
-                <div className="ml-2 mt-2">
-                  <div className="flex flex-col items-center">
-                    {user ? (
-                      <img
-                        className="w-[50px] rounded-full"
-                        src={user.photoURL}
-                      ></img>
-                    ) : (
-                      <FaRegUserCircle className="w-10 text-black/80 h-10" />
-                    )}
-                    {user ? (
-                      <button
-                        onClick={outUser}
-                        className="btn mt-3 btn-soft btn-secondary"
-                      >
-                        Sign Out
-                      </button>
-                    ) : (
-                      <div className="flex flex-col w-full items-center max-w-sm mx-auto space-y-4 mt-5">
-                        <Link className="w-full" to="/auth/login">
-                          <button className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 text-whit text-white  w-full">
-                            Login
-                          </button>
-                        </Link>
-                        <div className="divider">OR</div>
+              <div className="">
+                <ul className="menu ">
+                  <li>
+                    <NavLink
+                      to="/"
+                      className="text-[15px] font-medium hover:text-green-600 transition"
+                    >
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/plants"
+                      className="text-[15px] font-medium hover:text-green-600 transition"
+                    >
+                      Plants
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/profile"
+                      className="text-[15px] font-medium hover:text-green-600 transition"
+                    >
+                      My Profile
+                    </NavLink>
+                  </li>
 
-                        <Link
-                          type="button"
-                          to="/auth/register"
-                          className="w-full"
+                  <div className="ml-2  mt-4">
+                    <div className="flex flex-col ">
+                      {user ? (
+                        <img
+                          className="w-[50px] mx-auto rounded-full"
+                          src={user.photoURL}
+                        ></img>
+                      ) : (
+                        <FaRegUserCircle className="w-10 text-black/80 h-10" />
+                      )}
+                      {user ? (
+                        <button
+                          onClick={outUser}
+                          className="btn mt-3 btn-soft btn-secondary"
                         >
-                          <button className="btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 text-whit text-white  w-full">
-                            Register
-                          </button>
-                        </Link>
-                      </div>
-                    )}
+                          Sign Out
+                        </button>
+                      ) : (
+                        <div className="flex flex-col w-full items-center max-w-sm mx-auto space-y-4 mt-5">
+                          <Link className="w-full" to="/auth/login">
+                            <button className="hover:underline text-red-500 font-semibold">
+                              Login
+                            </button>
+                          </Link>
+                          {/* <div className="divider">OR</div> */}
+
+                          <Link
+                            type="button"
+                            to="/auth/register"
+                            className="w-full"
+                          >
+                            <button className="hover:underline text-red-500 font-semibold">
+                              Register
+                            </button>
+                          </Link>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </ul>
+                </ul>
+              </div>
             </div>
           </div>
 

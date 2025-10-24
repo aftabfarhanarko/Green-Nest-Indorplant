@@ -11,9 +11,7 @@ import { Link } from "react-router";
 const HeroSections = () => {
   return (
     <>
-    <div className="h-[98px] bg-white">
-
-    </div>
+      <div className="h-[98px] bg-white"></div>
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
@@ -51,15 +49,20 @@ const HeroSections = () => {
         <SwiperSlide>
           <div className="   md:flex w-11/12 mx-auto justify-between items-center py-10 ">
             <div>
-              <h1 className="text-3xl md:text-6xl font-bold ">
-                <span className="text-green-500"> GreenNest</span>{" "}
-                <span> Indoor Plant</span> <br></br>
-                <span className="text-lime-500"> Care & Store</span>{" "}
+              <h1 className="text-3xl md:text-5xl font-bold ">
+                <span className="text-green-500"> Plant Style Your </span>{" "}
+                <span> Room and </span> <br></br>
+                <span className="text-lime-500">
+                  {" "}
+                  Outside Of Your Room
+                </span>{" "}
               </h1>
-              <p className="text-md md:text-lg my-5 text-accent">
-                Bring freshness and life to your home. <br></br>
-                Discover handpicked indoor plants and expert care tips.<br></br>
-                Grow green, live better — with GreenNest.
+              <p className="text-md md:text-lg my-5 text-accent max-w-[500px] text-justify">
+                Green Corners are a beautiful way to bring a touch of nature
+                into any room. 🌿 Large leafy indoor plants or palms make the
+                corners feel more vibrant and refreshing. Combined with natural
+                light and cozy furniture, these green corners create a calm and
+                peaceful atmosphere in your home.
               </p>
               <Link
                 to="/plants"

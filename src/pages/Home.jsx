@@ -90,7 +90,7 @@ const Home = () => {
         </div>
       </section>
 
- <section className="my-17 w-11/12 mx-auto">
+      <section className="my-17 w-11/12 mx-auto">
         <Critev></Critev>
       </section>
 
@@ -105,7 +105,6 @@ const Home = () => {
           ))}
         </div>
       </div>
-      
 
       <section className="my-15">
         <h1 className="text-4xl md:text-5xl text-center mb-15 font-semibold  animate-pulse  ">
