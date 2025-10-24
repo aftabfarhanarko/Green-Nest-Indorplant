@@ -64,10 +64,9 @@ const Critev = () => {
 
         <div className=" flex flex-col md:flex-row justify-between items-center mt-15 contain-content ">
           <div data-aos="fade-up" className="flex flex-col gap-8">
-            <img className="rounded-lg max-w-[500px] " src={mini1}></img>
-            <img className="rounded-lg max-w-[500px]  " src={mini2}></img>
+            <img className="rounded-lg w-full max-w-[500px] " src={mini1}></img>
+            <img className="rounded-lg w-full max-w-[500px]  " src={mini2}></img>
           </div>
-
           <div data-aos="fade-up" className="px-6 text-justify">
             <h1
               data-aos="fade-up"
@@ -84,10 +83,12 @@ const Critev = () => {
               inviting environment for any home.
             </p>
           </div>
-
           <div data-aos="fade-up" className="flex mt-5 md:mt-0 flex-col gap-8">
-            <img className="rounded-lg max-w-[500px]  " src={mini3}></img>
-            <img className="rounded-lg max-w-[500px]  " src={mini4}></img>
+            <img className="rounded-lg w-full max-w-[500px]  " src={mini3}></img>
+            <img
+              className=" rounded-lg w-full max-w-[500px]  "
+              src={mini4}
+            ></img>
           </div>
         </div>
 
@@ -107,7 +108,7 @@ const Critev = () => {
             style and sophistication to any space.
           </p>
 
-          <div className="relative mt-12 w-full px-4">
+          <div  className="hidden  md:block relative mt-12 w-full px-4">
             <div
               className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r 
             from-white via-white/70  to-transparent pointer-events-none z-10  "
@@ -143,6 +144,51 @@ const Critev = () => {
                 </div>
               ))}
             </div>
+          </div>
+          <div className=" block md:hidden">
+            <Marquee
+              className=" cursor-pointer"
+              pauseOnHover={true}
+              speed={100}
+            >
+              <div className="relative mt-12 w-full px-4">
+                <div
+                  className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r 
+            from-white via-white/70  to-transparent pointer-events-none z-10  "
+                ></div>
+
+                <div
+                  className="absolute right-0  top-0 h-full w-8 bg-gradient-to-l 
+            from-white via-white/70  to-transparent pointer-events-none z-10  "
+                ></div>
+
+                <div
+                  className="
+             flex gap-6 overflow-x-auto md:grid md:grid-cols-3 
+             lg:grid-cols-6 md:overflow-visible scroll-smooth snap-x 
+             snap-mandatory scrollbar-hide py-4  "
+                >
+                  {[sel1, sel2, sel3, sel6, sel4, sel5].map((img, i) => (
+                    <div
+                      key={i}
+                      className="flex-shrink-0 snap-center md:snap-none relative group "
+                    >
+                      <img
+                        src={img}
+                        className="w-[220px] sm:w-[260px] md:w-full max-h-[400px]
+                    rounded-2xl object-cover shadow-md transition-all 
+                    duration-500 group-hover:scale-105 group-hover:shadow-xl   "
+                      ></img>
+                      <div
+                        className="absolute inset-0 rounded-2xl 
+                    bg-gradient-to-t from-black/50 via-transparent
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-500      "
+                      ></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Marquee>
           </div>
         </div>
       </div>

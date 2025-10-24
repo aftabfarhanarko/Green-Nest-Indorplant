@@ -133,6 +133,7 @@ const Navbar = () => {
             <div className="">
               {loding ? (
                 <ScaleLoader color="#FFFFFF " />
+                
               ) : user ? (
                 <img
                   className="w-[50px] rounded-full"

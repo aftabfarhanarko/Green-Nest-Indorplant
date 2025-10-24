@@ -3,7 +3,6 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
 
-
 const DetliseCard = ({ data }) => {
   const p = data;
 
@@ -19,7 +18,7 @@ const DetliseCard = ({ data }) => {
         <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-pink-50 rounded-xl overflow-hidden transition-transform duration-300  shadow-lg">
           <div className="md:flex md:items-start">
             {/* Image side */}
-            <div className="md:w-1/2 flex items-center justify-center p-8 bg-gradient-to-t from-green-100/40">
+            <div className="md:w-1/2 flex items-center justify-center p-4 md:p-6 bg-gradient-to-t from-green-100/40">
               <img
                 src={p.image}
                 alt={p.plantName}
@@ -30,7 +29,7 @@ const DetliseCard = ({ data }) => {
             {/* Info side */}
             <div className="md:w-1/2 p-8 flex flex-col justify-between">
               <div>
-                <h1 className="text-4xl font-bold  text-gray-800 mb-2 tracking-tight">
+                <h1 className=" text-2xl md:text-4xl font-bold  text-gray-800 mb-2 tracking-tight">
                   {p.plantName}
                 </h1>
                 <p className="text-base text-green-600 font-medium mb-5">
@@ -43,27 +42,27 @@ const DetliseCard = ({ data }) => {
                       {" "}
                       <FaStar /> <FaStar /> <FaStar /> <FaStar />
                     </span>
-                    <span className="text-accent text-lg font-semibold">
+                    <span className="text-accent text-md md:text-lg font-semibold">
                       {p.rating.toFixed(1)}
                     </span>
                   </div>
 
-                  <div className="text-3xl font-extrabold text-green-700">
+                  <div className=" text-xl mdtext-3xl font-extrabold text-green-700">
                     ${p.price}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 text-sm mb-5">
                   <div className="bg-white/70 border border-green-100 p-4 rounded-xl text-center">
-                    <div className="text-lg text-accent">Stock</div>
-                    <div className="font-semibold text-xl text-gray-800">
+                    <div className="text-sm md:text-lg text-accent">Stock</div>
+                    <div className="font-semibold text-[16px] md:text-xl text-gray-800">
                       {p.availableStock} available
                     </div>
                   </div>
 
                   <div className="bg-white/70 border border-green-100 p-4 rounded-xl text-center">
-                    <div className="text-lg text-accent">Care level</div>
-                    <div className="font-semibold text-xl text-gray-800">
+                    <div className="text-sm md:text-lg text-accent">Care level</div>
+                    <div className="font-semibold text-[16px] md:text-xl text-gray-800">
                       {p.careLevel}
                     </div>
                   </div>
@@ -76,10 +75,7 @@ const DetliseCard = ({ data }) => {
               </div>
 
               <div className="mt-4 flex flex-wrap items-center gap-4">
-                {/* <button className="px-6 py-1.5 rounded-full bg-green-600 text-white font-semibold shadow-md hover:bg-green-700 hover:shadow-lg transition-all duration-200">
-                  Add to cart
-                </button> */}
-
+               
                 <Link to="/">
                   <button className="px-5 py-1.5 rounded-full border border-green-300 font-medium text-gray-700 hover:bg-green-50 transition-all duration-200">
                     Back Home
@@ -92,14 +88,14 @@ const DetliseCard = ({ data }) => {
                   </button>
                 </Link>
               </div>
-                 <div className=" ">
-              <h2 className="animate-pulse text-2xl mt-5 font-semibold mb-1 text-gray-800">
-                Description
-              </h2>
-              <p className=" text-accent p-3 md:p-2 leading-relaxed text-sm text-justify">
-                {p.description}
-              </p>
-            </div>
+              <div className=" ">
+                <h2 className="animate-pulse text-lg md:text-2xl mt-5 font-semibold mb-1 text-gray-800">
+                  Description
+                </h2>
+                <p className=" text-accent p-3 md:p-2 leading-relaxed text-sm text-justify">
+                  {p.description}
+                </p>
+              </div>
             </div>
           </div>
 
@@ -107,14 +103,11 @@ const DetliseCard = ({ data }) => {
           <div className="mx-8 my-6 border-t border-green-300"></div>
 
           {/* Description full width below */}
-          <div className="p-4 py-15 flex flex-col  md:flex-row items-center  justify-between gap-15">
-          
-
-         
-              <div className="w-full px-4 md:px-15 ">
+          <div className="p-1 py-15 flex flex-col  md:flex-row items-center  justify-between gap-15">
+            <div className="w-full px-2 md:px-15 ">
               <form
                 onSubmit={handelSubmit}
-                className="max-w-lg mx-auto bg-gradient-to-br from-green-50 via-emerald-100 to-lime-50 border border-green-200 shadow-xl rounded-xl p-8 backdrop-blur-sm"
+                className="max-w-lg mx-auto bg-gradient-to-br from-green-50 via-emerald-100 to-lime-50 border border-green-200 hover:shadow-lg rounded-xl p-8 backdrop-blur-sm"
               >
                 <h2 className="text-3xl font-bold text-center text-emerald-700 mb-6">
                   🌿 Get In Touch
