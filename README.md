@@ -60,4 +60,4 @@ It provides plant lovers with an enjoyable digital experience to explore, learn,
 *Github Repo Link* : https://github.com/programming-hero-web-course2/b12-a9-firesheild-aftabfarhanarko
 
 
-*Live Link* : 
+*Live Link* : https://home-green-plant.netlify.app/
