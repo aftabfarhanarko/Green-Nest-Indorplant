@@ -70,7 +70,7 @@ const Critev = () => {
           </div>
 
           <div data-aos="fade-up" className="px-6 text-justify">
-            <h1 className="text-center text-lg font-semibold mt-10">
+            <h1 data-aos="fade-up" className="text-center text-lg font-semibold mt-10">
               {" "}
               Gorgias Desing
             </h1>
@@ -89,11 +89,11 @@ const Critev = () => {
           </div>
         </div>
 
-        <div className="text-center">
+        <div data-aos="fade-up" className="text-center">
           <h1 className="text-center text-lg mt-15 font-semibold">
             Self Design Patel
           </h1>
-          <p className="text-accent text-justify  max-w-[700px] mx-auto ">
+          <p data-aos="fade-up" className="text-accent text-justify  max-w-[700px] mx-auto ">
             <span className="text-lg font-semibold">How to Design : </span> Self
             Design Patel is a creative concept that focuses on unique,
             personalized design patterns inspired by traditional motifs. Each
