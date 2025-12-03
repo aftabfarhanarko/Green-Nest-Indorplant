@@ -16,8 +16,8 @@ const Navbar = () => {
     signOutUser();
   };
   return (
-    <div className=" z-9 flex justify-between items-center w-11/12 mx-auto py-2 ">
-      <img className="w-20 h-20 border-2 rounded-full" src={logo}></img>
+    <div className=" z-9 flex justify-between items-center w-11/12 mx-auto py-1.5 ">
+      <img className="w-12 h-12 border rounded-full" src={logo}></img>
       <div className="hidden md:block md:flex gap-7 text-white font-semibold items-center">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/plants">Plants</NavLink>
