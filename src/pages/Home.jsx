@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <div className="my-20 w-11/12 mx-auto">
-      <section className="my-20">
+      <section  href="#plant-care" className="my-20">
         <h1 className="text-4xl md:text-5xl text-center mb-19 font-semibold hover:animate-bounce  ">
           <span className="text-green-500"> Plant Care</span>{" "}
           <span className="text-lime-500"> Tips Section 🪴</span>{" "}
