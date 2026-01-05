@@ -3,8 +3,8 @@ import { PacmanLoader } from 'react-spinners';
 
 const DataLoder = () => {
     return (
-       <div className='bg-gradient-to-br  col-span-full to-whit w-full col-span-11  min-h-screen flex justify-center items-center'>
-            <PacmanLoader color='#36D7B7' />
+       <div className='bg-transparent col-span-full w-full min-h-[50vh] flex justify-center items-center'>
+            <PacmanLoader color='#059669' size={25} />
         </div>
     );
 };

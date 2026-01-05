@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FaRegStar } from "react-icons/fa";
+import { FaRegStar, FaStar, FaShoppingCart, FaEye } from "react-icons/fa";
 import { Link } from "react-router";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -7,64 +7,68 @@ import "aos/dist/aos.css";
 const GreenExpert = ({ plant }) => {
    useEffect(() => {
       AOS.init({
-        duration: 1000,
-        offset: 100,
+        duration: 800,
+        offset: 50,
         once: true,
       });
-      AOS.refresh();
     }, []);
 
   return (
-    <section
+    <div
     data-aos="fade-up"
-    className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-lg overflow-hidden  ">
-      <img
-        src={plant.image}
-        alt={plant.plantName}
-        className="w-full h-75 object-cover object-center transition-transform duration-500 hover:scale-110"
-      />
+    className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden relative flex flex-col h-full">
+      
+      {/* Image Container */}
+      <div className="relative h-64 overflow-hidden bg-gray-50">
+        <img
+          src={plant.image}
+          alt={plant.plantName}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg text-xs font-bold text-primary shadow-sm">
+          {plant.category}
+        </div>
+        {plant.availableStock < 5 && (
+             <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-lg text-xs font-bold shadow-sm">
+             Low Stock
+           </div>
+        )}
+        
+        {/* Overlay Actions */}
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+            <Link to={`/detlise/${plant.plantId}`} className="btn btn-circle btn-sm btn-white text-primary hover:bg-primary hover:text-white border-none shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                <FaEye />
+            </Link>
+            <button className="btn btn-circle btn-sm btn-white text-primary hover:bg-primary hover:text-white border-none shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                <FaShoppingCart />
+            </button>
+        </div>
+      </div>
 
-      <div className="p-5 text-accent">
-        {/* Plant Name */}
-        <h2 className="text-xl font-bold mb-2">{plant.plantName}</h2>
+      {/* Content */}
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-2">
+            <h2 className="text-lg font-bold text-gray-800 line-clamp-1 group-hover:text-primary transition-colors">{plant.plantName}</h2>
+            <div className="flex items-center gap-1 bg-yellow-50 px-1.5 py-0.5 rounded text-xs font-bold text-yellow-600">
+                <FaStar className="text-yellow-400" /> {plant.rating}
+            </div>
+        </div>
 
-        {/* Category & Provider */}
-        <p className="text-sm text-accent mb-1">Category: {plant.category}</p>
-        <p className="text-sm text-accent mb-3">
-          Provider: {plant.providerName}
+        <p className="text-sm text-gray-500 mb-4 line-clamp-2">
+            Perfect for your {plant.category} collection.
         </p>
 
-        {/* Rating & Stock */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center">
-            <FaRegStar className="text-yellow-400 w-5 h-5 mr-1" />
-            <span className="text-yellow-300 font-semibold">
-              {plant.rating} ★
-            </span>
-          </div>
-          <span className="text-sm  ">Stock: {plant.availableStock}</span>
+        <div className="mt-auto flex items-center justify-between">
+            <div>
+                <span className="text-xs text-gray-400 block">Price</span>
+                <span className="text-xl font-bold text-primary">${plant.price}</span>
+            </div>
+            <Link to={`/detlise/${plant.plantId}`} className="btn btn-sm btn-outline btn-primary rounded-lg hover:shadow-md">
+                Buy Now
+            </Link>
         </div>
-
-        {/* Care Level */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-sm bg-white/20 px-2 py-1 rounded-full">
-            Care: {plant.careLevel}
-          </span>
-          <span className="text-lg font-bold text-green-300">
-            ${plant.price}
-          </span>
-        </div>
-
-        {/* Button */}
-        <Link to={`/detlise/${plant.plantId}`}>
-          <button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
-            View Details
-          </button>
-        </Link>
       </div>
-    </section>
-
-    // ai card ta chatgpt copy kore creat kora  nije lickta hobe na hoila shomosha
+    </div>
   );
 };
 

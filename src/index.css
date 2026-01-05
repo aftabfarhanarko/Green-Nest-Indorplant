@@ -1,12 +1,43 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
 
 .open-sans-font {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
 }
-/* counter-up tailwind css class count hobe number  */
+
+/* Premium Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #059669; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #047857; 
+}
+
 @import "tailwindcss";
 @plugin "daisyui" {
  themes: light --default;
@@ -15,13 +46,16 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #403f3f;
-  --color-secondary: #d72050;
-  --color-base-200: #f3f3f3;
-  --color-base-300: #e7e7e7;
-  --color-accent: #706f6f;
+  --color-primary: #059669; /* Emerald 600 */
+  --color-secondary: #d97706; /* Amber 600 */
+  --color-accent: #374151; /* Gray 700 */
+  --color-base-100: #ffffff;
+  --color-base-200: #f9fafb; /* Gray 50 */
+  --color-base-300: #f3f4f6; /* Gray 100 */
+  --color-neutral: #1f2937; /* Gray 800 */
 }
 
 a.active{
- color: #f030d7;
+ color: #059669;
+ font-weight: 700;
 }

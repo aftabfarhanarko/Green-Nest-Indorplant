@@ -5,17 +5,12 @@ import Footer from "../components/Footer";
 
 const AuthLayout = () => {
   return (
-    <div>
-       <header className=" fixed w-full z-5 bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
-        <Navbar></Navbar>
-      </header>
-      <div className="h-[98px] bg-white"></div>
-      <main>
-        <Outlet></Outlet>
+    <div className="font-open-sans">
+       <Navbar />
+      <main className="min-h-screen pt-20 bg-gray-50">
+        <Outlet />
       </main>
-      <footer>
-        <Footer></Footer>
-      </footer>
+      <Footer />
     </div>
   );
 };

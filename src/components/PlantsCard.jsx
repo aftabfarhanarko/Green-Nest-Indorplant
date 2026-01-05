@@ -20,55 +20,62 @@ const PlantsCard = ({ plant }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        className="h-full"
       >
         <div
-         data-aos="fade-up"
-        className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-lg overflow-hidden hover:shadow-2xl ">
-          <img
-            src={plant.image}
-            alt={plant.plantName}
-            className="w-full h-75 object-cover object-center transition-transform duration-500 hover:scale-110"
-          />
-
-          <div className="p-5 text-accent">
-            {/* Plant Name */}
-            <h2 className="text-xl font-bold mb-2">{plant.plantName}</h2>
-
-            {/* Category & Provider */}
-            <p className="text-sm text-accent mb-1">
-              Category: {plant.category}
-            </p>
-            <p className="text-sm text-accent mb-3">
-              Provider: {plant.providerName}
-            </p>
-
-            {/* Rating & Stock */}
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center">
-                <FaRegStar className="text-yellow-400 w-5 h-5 mr-1" />
-                <span className="text-yellow-300 font-semibold">
-                  {plant.rating} ★
-                </span>
-              </div>
-              <span className="text-sm  ">Stock: {plant.availableStock}</span>
-            </div>
-
-            {/* Care Level */}
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm bg-white/20 px-2 py-1 rounded-full">
-                Care: {plant.careLevel}
-              </span>
-              <span className="text-lg font-bold text-green-300">
+          data-aos="fade-up"
+          className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
+        >
+          <div className="relative overflow-hidden h-64">
+            <img
+              src={plant.image}
+              alt={plant.plantName}
+              className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute top-3 right-3">
+              <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
                 ${plant.price}
               </span>
             </div>
+            {plant.availableStock < 5 && (
+              <div className="absolute top-3 left-3">
+                 <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                  Low Stock
+                 </span>
+              </div>
+            )}
+          </div>
 
-            {/* Button */}
-          <Link to={`/detlise/${plant.plantId}`}>
-            <button  className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
-              View Details
-            </button>
-            </Link>
+          <div className="p-5 flex flex-col flex-grow">
+            <div className="flex justify-between items-start mb-2">
+              <div>
+                <h2 className="text-lg font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors">
+                  {plant.plantName}
+                </h2>
+                <p className="text-xs text-gray-500 font-medium bg-gray-100 inline-block px-2 py-1 rounded-md">
+                  {plant.category}
+                </p>
+              </div>
+              <div className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded-lg">
+                <FaRegStar className="text-yellow-400 w-3 h-3" />
+                <span className="text-yellow-600 text-xs font-bold">
+                  {plant.rating}
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-auto pt-4 space-y-3">
+              <div className="flex justify-between items-center text-sm text-gray-500">
+                 <span>Stock: {plant.availableStock}</span>
+                 <span>{plant.careLevel}</span>
+              </div>
+              
+              <Link to={`/detlise/${plant.plantId}`} className="block">
+                <button className="w-full bg-gray-50 hover:bg-primary hover:text-white text-gray-700 font-semibold py-3 rounded-xl transition-all duration-300 border border-gray-200 hover:border-primary">
+                  View Details
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </motion.article>

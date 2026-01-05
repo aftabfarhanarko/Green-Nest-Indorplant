@@ -1,17 +1,18 @@
 import React, { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaRegUser } from "react-icons/fa";
-import { Link, Navigate, useNavigate } from "react-router";
+import { FaEye, FaEyeSlash, FaUser, FaLink, FaEnvelope, FaLock } from "react-icons/fa";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContex";
 import { toast } from "react-toastify";
+import logo from "../assets/logo.png";
 
 const Register = () => {
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const { creatUser, updeatUserProfile } = useContext(AuthContext);
-  const [er, setEr] = useState();
-  const navegit = useNavigate();
 
-  const handelRegister = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const email = e.target.email?.value;
     const displayName = e.target.name?.value;
@@ -20,119 +21,124 @@ const Register = () => {
 
     const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!validPassword.test(password)) {
-      toast.error("Password must contain A-Z, a-z & 6+ chars")
-      setEr("Password must contain A-Z, a-z & 6+ chars");
+      setError("Password must have at least 6 characters, one uppercase and one lowercase letter.");
+      toast.error("Weak Password");
       return;
     }
-    const ubdet = {
-      displayName,
-      photoURL,
-    };
 
-    setEr("");
+    setError("");
     creatUser(email, password)
       .then(() => {
-
-        updeatUserProfile(ubdet)
+        const profileUpdates = {
+          displayName,
+          photoURL,
+        };
+        updeatUserProfile(profileUpdates)
           .then(() => {
-            toast.success("Successfully Register Now");
-            navegit("/");
+            toast.success("Account created successfully!");
+            navigate("/");
           })
-          .catch((er) => {
-             toast.error(er.code);
+          .catch((err) => {
+             toast.error(err.code || "Failed to update profile");
           });
       })
       .catch((err) => {
-        setEr(err);
-        toast.error(err.code)
+        setError(err.message);
+        toast.error(err.code || "Registration failed");
       });
   };
+
   return (
-    <div className="flex justify-center items-center min-h-screen px-2 py-10">
-      <title>Register From</title>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <div className="card-body">
-          <h1 className="text-lg font-semibold mb-5 text-center">
-            Register your account
-          </h1>
-          <form onSubmit={handelRegister}>
-            <fieldset className="fieldset">
-              {/* Name */}
-             <div className="relative">
-               <label className="label font-semibold ">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                className="input pl-7  focus:outline-none  "
-                placeholder="enter your name"
-                required
-              />
-              <FaRegUser className=" absolute top-8.5 left-3 z-4 w-[14px] h-[11px]" />
-             </div>
+    <div className="flex justify-center items-center min-h-[80vh] py-10 px-4">
+      <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+        <div className="p-8">
+          <div className="text-center mb-8">
+            <img src={logo} alt="GreenNest" className="w-16 h-16 mx-auto mb-4 rounded-full border-2 border-primary" />
+            <h1 className="text-2xl font-bold font-montserrat text-gray-800">Create Account</h1>
+            <p className="text-gray-500 mt-2">Join GreenNest and start your journey</p>
+          </div>
 
-              {/* {erra && <p className="text-xs text-red-500">{erra}</p>} */}
-
-              {/* Photo Url */}
-              <label className="label font-semibold">Photo URL</label>
-              <input
-                type="text"
-                name="photo"
-                className="input focus:outline-none"
-                placeholder="photo url"
-                required
-              />
-
-              {/* Email */}
-              <label className="label font-semibold">Email address</label>
-              <input
-                type="email"
-                name="email"
-                className="input focus:outline-none"
-                placeholder="email"
-                required
-              />
-              {/* {era && <p className="text-xs text-red-500">{era}</p>} */}
-
-              <div className="relative ">
-                <label className="label font-semibold">Password</label>
+          <form onSubmit={handleRegister} className="space-y-5">
+            {/* Name */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+              <div className="relative">
                 <input
-                  type={show ? "text" : "password"}
-                  name="password"
-                  className="input focus:outline-none"
-                  placeholder="password"
-                  required
+                    type="text"
+                    name="name"
+                    className="input input-bordered w-full rounded-xl pl-10 focus:border-primary focus:ring-1 focus:ring-primary"
+                    placeholder="John Doe"
+                    required
                 />
-                <div
-                  className="absolute right-7 top-8 z-2  cursor-pointer text-md"
-                  onClick={() => setShow(!show)}
-                >
-                  {show ? <FaEye /> : <FaEyeSlash />}
-                </div>
+                <FaUser className="absolute left-3 top-3.5 text-gray-400" />
               </div>
+            </div>
 
-              {/* Remember me */}
-              <label className="label">
+            {/* Photo URL */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Photo URL</label>
+              <div className="relative">
                 <input
-                  type="checkbox"
-                  name="rememberMe"
-                  defaultChecked
-                  className="checkbox"
+                    type="text"
+                    name="photo"
+                    className="input input-bordered w-full rounded-xl pl-10 focus:border-primary focus:ring-1 focus:ring-primary"
+                    placeholder="https://example.com/photo.jpg"
+                    required
                 />
-                Remember me
-              </label>
+                <FaLink className="absolute left-3 top-3.5 text-gray-400" />
+              </div>
+            </div>
 
-              <button type="submit" className="btn btn-neutral mt-4">
-                Register
-              </button>
-              <p className="text-red-600">{er && er}</p>
-              <p className="font-semibold text-center mt-2">
-                Dont’t Have An Account ?{" "}
-                <Link className="text-red-500 hover:underline" to="/auth/login">
-                  Login
-                </Link>
-              </p>
-            </fieldset>
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <div className="relative">
+                <input
+                    type="email"
+                    name="email"
+                    className="input input-bordered w-full rounded-xl pl-10 focus:border-primary focus:ring-1 focus:ring-primary"
+                    placeholder="you@example.com"
+                    required
+                />
+                <FaEnvelope className="absolute left-3 top-3.5 text-gray-400" />
+              </div>
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <div className="relative">
+                <input
+                    type={show ? "text" : "password"}
+                    name="password"
+                    className="input input-bordered w-full rounded-xl pl-10 pr-10 focus:border-primary focus:ring-1 focus:ring-primary"
+                    placeholder="••••••••"
+                    required
+                />
+                <FaLock className="absolute left-3 top-3.5 text-gray-400" />
+                <button
+                    type="button"
+                    className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600"
+                    onClick={() => setShow(!show)}
+                >
+                    {show ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
+            </div>
+
+            {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+
+            <button type="submit" className="btn btn-primary w-full rounded-xl text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all">
+              Register
+            </button>
           </form>
+
+          <p className="text-center mt-6 text-gray-600">
+            Already have an account?{" "}
+            <Link to="/auth/login" className="text-primary font-bold hover:underline">
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </div>

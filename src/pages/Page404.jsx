@@ -7,29 +7,30 @@ import Footer from "../components/Footer";
 
 const Page404 = () => {
   return (
-    <div>
-      <header>
-        <nav className="fixed w-full z-20  bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400 shadow-lg">
-          <Navbar></Navbar>
-        </nav>
-        <div className="h-[98px] bg-white"></div>
-      </header>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <Navbar></Navbar>
+      
+      <main className="flex-grow flex flex-col items-center justify-center pt-28 pb-20 text-center px-4">
+        <div className="max-w-md w-full">
+          <img className="w-full max-w-xs mx-auto mb-8 drop-shadow-xl" src={page} alt="404 Not Found"></img>
+          
+          <h1 className="text-4xl md:text-6xl font-bold font-montserrat text-gray-800 mb-4">
+            Oops! Page Not Found
+          </h1>
+          <p className="text-gray-500 text-lg mb-8">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+          </p>
 
-      <div className="min-h-full py-15 -mt-16 flex justify-center items-center text-center">
-        <div>
-          <img className="max-w-[70%] mx-auto mt-16" src={page}></img>
           <Link
             to="/"
-            className=" w-[150px] text-center  btn bg-gradient-to-r from-lime-400 via-emerald-500 to-green-400 shadow-lg text-whit text-white mt-4"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary text-white font-bold hover:bg-emerald-700 shadow-lg shadow-emerald-200 transition-all transform hover:-translate-y-1"
           >
-            <IoHomeOutline /> Go Home
+            <IoHomeOutline className="text-xl" /> Back to Home
           </Link>
         </div>
-      </div>
+      </main>
 
-      <footer>
-        <Footer></Footer>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 };
